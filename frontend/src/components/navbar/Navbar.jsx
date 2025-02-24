@@ -1,50 +1,49 @@
 import React from "react";
 import styles from "./Navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
   return (
     <div
-      className={`${styles.navbar} flex justify-around items-center text-white rounded-3xl py-3 mt-7 mx-16`}
+      className={`${styles.navbar} flex justify-between items-center text-white rounded-3xl p-4 mt-7 mx-5 sm:mx-16`}
     >
-      <div className="flex justify-center items-center gap-4">
-        <img
-          src="/images/Logo.jpg"
-          alt="Logo"
-          className="w-10 h-10 rounded-2xl"
-        />
-        <h1 className="text-2xl">
-          <strong>
-            Imperia<span className="text-[#CAFF34]">Tech</span>
-          </strong>
-        </h1>
-      </div>
+      <Link to={"/"}>
+        <div className="flex justify-center items-center gap-4">
+          <img
+            src="/images/Logo.jpg"
+            alt="Logo"
+            className="w-10 h-10 rounded-2xl"
+          />
+          <h1 className="text-2xl">
+            <strong>
+              Imperia<span className="text-[#CAFF34]">Tech</span>
+            </strong>
+          </h1>
+        </div>
+      </Link>
       <div>
-        <ul className="flex justify-center items-center gap-3">
+        <Menu className="flex lg:hidden" />
+        <ul className="justify-center items-center gap-3 hidden lg:flex">
           <li>
-            <NavLink to={""} className="p-3">
-              Home
+            <NavLink to={"/"} className="p-3">
+              Ana səhifə
             </NavLink>
           </li>
           <li>
-            <NavLink to={"careers"} className="p-3">
-              Careers
+            <NavLink to={"about"} className="p-3">
+              Haqqımızda
             </NavLink>
           </li>
-        </ul>
-      </div>
-      <div>
-        <ul className="flex justify-center items-center gap-4">
           <li>
-            <Link to={"signup"}>Sign Up</Link>
+            <NavLink to={"services"} className="p-3">
+              Xidmətlərimiz
+            </NavLink>
           </li>
           <li>
-            <Link
-              to={"login"}
-              className="bg-[#CAFF34] text-gray-950 p-2 rounded-2xl"
-            >
-              Login
-            </Link>
+            <NavLink to={"contact"} className="p-3">
+              Əlaqə
+            </NavLink>
           </li>
         </ul>
       </div>

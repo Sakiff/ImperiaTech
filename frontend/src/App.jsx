@@ -1,12 +1,18 @@
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ROUTES from "./routes/Routes";
-const routes = createBrowserRouter(ROUTES);
+import { Route, Routes } from "react-router-dom";
+import Root from "./pages/Root";
+import Home from "./pages/home/Home";
+import NotFound from "./pages/notfound/NotFound";
 
 function App() {
   return (
     <>
-      <RouterProvider router={routes} />
+      <Routes>
+        <Route path="/" element={<Root />}>
+          <Route index element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
     </>
   );
 }
