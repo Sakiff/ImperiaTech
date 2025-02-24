@@ -5,7 +5,6 @@ body {
 
 .active {
   background-color: #262626;
-  padding: 10px;
   transition: 0.6s all ease;
   border-radius: 15px;
 }

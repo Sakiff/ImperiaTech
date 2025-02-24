@@ -5,7 +5,7 @@ import { Link, NavLink } from "react-router-dom";
 export default function Navbar() {
   return (
     <div
-      className={`${styles.navbar} flex justify-around items-center text-white rounded-3xl py-3 mt-7 mx-15`}
+      className={`${styles.navbar} flex justify-around items-center text-white rounded-3xl py-3 mt-7 mx-16`}
     >
       <div className="flex justify-center items-center gap-4">
         <img
@@ -13,17 +13,23 @@ export default function Navbar() {
           alt="Logo"
           className="w-10 h-10 rounded-2xl"
         />
-        <h1 className="text-2xl font-bold">
-          Imperia<span className="text-lime-400">Tech</span>
+        <h1 className="text-2xl">
+          <strong>
+            Imperia<span className="text-[#CAFF34]">Tech</span>
+          </strong>
         </h1>
       </div>
       <div>
-        <ul className="flex justify-center items-center gap-6">
+        <ul className="flex justify-center items-center gap-3">
           <li>
-            <NavLink to={""}>Home</NavLink>
+            <NavLink to={""} className="p-3">
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"careers"}>Careers</NavLink>
+            <NavLink to={"careers"} className="p-3">
+              Careers
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -35,7 +41,7 @@ export default function Navbar() {
           <li>
             <Link
               to={"login"}
-              className="bg-lime-400 text-gray-950 p-2 rounded-2xl"
+              className="bg-[#CAFF34] text-gray-950 p-2 rounded-2xl"
             >
               Login
             </Link>
