@@ -8,7 +8,7 @@ export default function Hero() {
           <img src="/images/Subtract.png" alt="İmperia Tech ikon" />
           <p>"İnnovasiya və Texnologiyanın Kəsişdiyi Nöqtə!"</p>
         </div>
-        <p className="text-5xl leading-normal">
+        <p className="text-4xl md:text-5xl leading-normal">
           <strong className="text-[#CAFF34]">Imperia Tech</strong> Rəqəmsal
           <br />
           Gələcəyinizi Qururuq
@@ -25,12 +25,12 @@ export default function Hero() {
           className="relative overflow-hidden bg-[#CAFF34] py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-lime-400 hover:to-green-500 hover:shadow-[0_0_20px_#a3e635] hover:scale-105 active:scale-95 group"
         >
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent to-lime-300 opacity-50 transition-all duration-300 ease-out group-hover:translate-x-full"></span>
-          <span className="relative z-10">Əlaqə saxla</span>
+          <span className="relative z-10">İndi başla</span>
         </a>
       </div>
       <div className="w-[40%] hidden lg:flex">
         <img
-          src="/images/Logo.jpg"
+          src="/images/Hero.png"
           alt="Imperia Tech şirkətinin loqosu"
           className="w-full"
         />

@@ -26,22 +26,22 @@ export default function Navbar() {
         <Menu className="flex lg:hidden" />
         <ul className="justify-center items-center gap-3 hidden lg:flex">
           <li>
-            <NavLink to={"/"} className="p-3">
+            <NavLink to={"/"} className={`p-3 ${styles.navLink}`}>
               Ana səhifə
             </NavLink>
           </li>
           <li>
-            <NavLink to={"about"} className="p-3">
+            <NavLink to={"about"} className={`p-3 ${styles.navLink}`}>
               Haqqımızda
             </NavLink>
           </li>
           <li>
-            <NavLink to={"services"} className="p-3">
+            <NavLink to={"services"} className={`p-3 ${styles.navLink}`}>
               Xidmətlərimiz
             </NavLink>
           </li>
           <li>
-            <NavLink to={"contact"} className="p-3">
+            <NavLink to={"contact"} className={`p-3 ${styles.navLink}`}>
               Əlaqə
             </NavLink>
           </li>
