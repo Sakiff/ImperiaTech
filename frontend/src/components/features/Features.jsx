@@ -56,10 +56,10 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 200, delay: index * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            className="relative p-6 bg-[#1E1E1E] rounded-xl flex flex-col items-center text-center gap-4 overflow-hidden border border-transparent transition-all duration-300 group"
+            whileHover={{ scale: 1.05 }}
+            className="relative p-6 bg-[#1E1E1E] rounded-xl flex flex-col items-center text-center gap-4 overflow-hidden border border-transparent transition-all duration-300 group hover:border-[#D4FF00]"
+            style={{ transition: "transform 0.2s ease-out" }}
           >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#D4FF00]/40 to-[#32FF32]/40 blur-xl" />
             <div className="relative z-10">
               <Icon
                 size={40}
@@ -70,6 +70,7 @@ export default function Features() {
               </h3>
               <p className="text-gray-300">{desc}</p>
             </div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-r from-[#D4FF00]/5 to-[#32FF32]/5 blur-sm" />
           </motion.div>
         ))}
       </div>
