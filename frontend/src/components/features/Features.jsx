@@ -48,7 +48,7 @@ export default function Features() {
       <h1 className="text-4xl sm:text-5xl font-bold text-center mb-14 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
         Sizə təqdim etdiklərimiz
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mx-auto">
         {features.map(({ icon: Icon, title, desc }, index) => (
           <motion.div
             key={index}
@@ -56,9 +56,8 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 200, delay: index * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="relative p-6 bg-[#1E1E1E] rounded-xl flex flex-col items-center text-center gap-4 overflow-hidden border border-transparent transition-all duration-300 group hover:border-[#D4FF00]"
-            style={{ transition: "transform 0.2s ease-out" }}
+            className="relative p-6 bg-[#1E1E1E] rounded-xl flex flex-col items-center text-center gap-4 overflow-hidden border border-transparent transition-all duration-300 group hover:border-[#D4FF00] hover:scale-105"
+            style={{ transition: "all 0.3s ease-out" }}
           >
             <div className="relative z-10">
               <Icon
