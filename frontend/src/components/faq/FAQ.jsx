@@ -6,12 +6,12 @@ const faqData = [
   {
     question: "Veb saytınızı nə qədər müddətə hazırlayırsınız?",
     answer:
-      "Veb saytların hazırlanma müddəti, layihənin tələblərinə görə dəyişir. Adətən, 2-4 həftə ərzində tamamlanır.",
+      "Veb saytların hazırlanma müddəti, layihənin tələblərinə görə dəyişir. Adətən, 1-2 həftə ərzində tamamlanır.",
   },
   {
     question: "SEO xidmətləriniz nələri əhatə edir?",
     answer:
-      "SEO xidmətlərimiz veb saytınızın axtarış motorlarında optimallaşdırılmasını, açar sözlərə uyğun məzmun yaradılmasını və əlaqəli səhifələrin optimizasiyasını əhatə edir.",
+      "SEO xidmətlərimiz saytınızın Google və digər axtarış motorlarında daha yaxşı tapılmasını təmin edir. Bunun üçün saytınızdakı məzmunu, açar sözləri və səhifə quruluşunu optimallaşdırırıq. Həmçinin, saytınızın digər saytlarla əlaqələrini gücləndirərək axtarış nəticələrində daha yüksək mövqe əldə etməyinizə kömək edirik.",
   },
   {
     question: "Mobil uyğunluq necə təmin olunur?",
@@ -21,7 +21,7 @@ const faqData = [
   {
     question: "Saytımın təhlükəsizliyi necə təmin olunur?",
     answer:
-      "Saytınızın təhlükəsizliyi üçün SSL sertifikası, məlumatların şifrələnməsi və digər təhlükəsizlik tədbirləri həyata keçirilir.",
+      "Saytınızın təhlükəsizliyi üçün SSL sertifikatı, məlumatların şifrələnməsi və digər təhlükəsizlik tədbirləri həyata keçirilir.",
   },
   {
     question: "Dizaynlarınız nə dərəcədə modern və istifadəçi dostudur?",
@@ -39,10 +39,15 @@ export default function FAQ() {
 
   return (
     <div className="my-16">
-      <h1 className="text-4xl sm:text-5xl font-bold text-center mb-14 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
+      <h1 className="text-4xl sm:text-5xl font-bold text-center mb-5 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
         Tez-tez Verilən Suallar
       </h1>
-      <div className=" space-y-4">
+
+      <p className="text-center text-lg text-gray-300 mb-10">
+        Sizdən tez-tez aldığımız suallar və cavablar. Bizə daha çox sualınız
+        varsa, bizə yazın!
+      </p>
+      <div className="space-y-4">
         {faqData.map((item, index) => (
           <motion.div
             key={index}
@@ -50,7 +55,9 @@ export default function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 200, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="bg-[#1E1E1E] rounded-xl p-6 transition-all duration-300"
+            className={`relative bg-[#1E1E1E] rounded-xl p-6 transition-all duration-300 ${
+              openIndex === index ? "border-2 border-[#CAFF34]" : "border-none"
+            }`}
           >
             <div
               className="flex justify-between items-center cursor-pointer"

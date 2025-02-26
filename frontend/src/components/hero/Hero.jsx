@@ -1,40 +1,63 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
     <div className="flex justify-around items-center gap-6 md:gap-10 mt-10 md:mt-20">
-      <div className="flex flex-col justify-center items-center lg:items-start text-center lg:text-start gap-6 md:gap-10 w-full lg:w-[60%]">
+      <motion.div
+        className="flex flex-col justify-center items-center lg:items-start text-center lg:text-start gap-6 md:gap-10 w-full lg:w-[60%]"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+      >
         <div className="flex justify-center items-center gap-1">
           <img src="/images/Subtract.png" alt="İmperia Tech ikon" />
           <p>"İnnovasiya və Texnologiyanın Kəsişdiyi Nöqtə!"</p>
         </div>
-        <p className="text-4xl md:text-5xl leading-normal">
+        <motion.p
+          className="text-4xl md:text-5xl leading-normal"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
+        >
           <strong className="text-[#CAFF34]">Imperia Tech</strong> Rəqəmsal
           <br />
           Gələcəyinizi Qururuq
-        </p>
-        <p>
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 100, delay: 0.4 }}
+        >
           İmperia Tech olaraq, hər müştərinin unikal ehtiyaclarını nəzərə alaraq
           peşəkar veb həllər yaradırıq. Biznesinizi onlayn platformada
           gücləndirmək, brendinizi tanıtmaq və müştərilərinizə daha yaxşı xidmət
           göstərmək üçün innovativ və fərdiləşdirilmiş texnologiyalar təklif
           edirik. Bizimlə gələcəyə addım atın!
-        </p>
-        <a
+        </motion.p>
+        <motion.a
           href="/contact"
           className="relative overflow-hidden bg-[#CAFF34] py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-lime-400 hover:to-green-500 hover:shadow-[0_0_20px_#a3e635] hover:scale-105 active:scale-95 group"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
         >
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent to-lime-300 opacity-50 transition-all duration-300 ease-out group-hover:translate-x-full"></span>
           <span className="relative z-10">İndi başla</span>
-        </a>
-      </div>
-      <div className="w-[40%] hidden lg:flex">
+        </motion.a>
+      </motion.div>
+      <motion.div
+        className="w-[40%] hidden lg:flex"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
+      >
         <img
           src="/images/Hero.png"
           alt="Imperia Tech şirkətinin loqosu"
           className="w-full"
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -45,9 +45,15 @@ const features = [
 export default function Features() {
   return (
     <div className="my-16 ">
-      <h1 className="text-4xl sm:text-5xl font-bold text-center mb-14 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
+      <h1 className="text-4xl sm:text-5xl font-bold text-center mb-5 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
         Sizə təqdim etdiklərimiz
       </h1>
+
+      <p className="text-center text-lg text-gray-300 mb-10">
+        Bizim təqdim etdiyimiz xidmətlərlə, biznesinizin rəqabət üstünlüyünü
+        artırın və müştərilərinizə daha yaxşı təcrübə təqdim edin.
+      </p>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  mx-auto">
         {features.map(({ icon: Icon, title, desc }, index) => (
           <motion.div

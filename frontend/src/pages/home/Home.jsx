@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../../components/hero/Hero";
 import Features from "../../components/features/Features";
 import FAQ from "../../components/faq/Faq";
+import Testimonials from "../../components/testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Features />
       <FAQ />
+      <Testimonials />
     </div>
   );
 }
