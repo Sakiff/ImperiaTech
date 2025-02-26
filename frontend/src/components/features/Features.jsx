@@ -44,8 +44,8 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="my-16 ">
-      <h1 className="text-4xl sm:text-5xl font-bold text-center mb-5 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
+    <div className="my-16 px-5 sm:px-16 ">
+      <h1 className="text-4xl p-2 sm:text-5xl font-bold text-center mb-5 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
         Sizə təqdim etdiklərimiz
       </h1>
 

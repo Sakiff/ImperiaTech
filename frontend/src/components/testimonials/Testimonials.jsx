@@ -21,7 +21,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <div className="my-16">
+    <div className="my-16 px-5 sm:px-16">
       <h1 className="text-4xl p-2 sm:text-5xl font-bold text-center mb-5 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
         Müştəri Rəyləri
       </h1>
@@ -41,7 +41,7 @@ export default function Testimonials() {
               type: "spring",
               stiffness: 100,
               delay: index * 0.3,
-              duration: 0.8, // Animasiyanın nə qədər sürətli olacağını müəyyən edirik
+              duration: 0.8,
             }}
             className="bg-[#1E1E1E] rounded-xl p-6 shadow-lg"
           >

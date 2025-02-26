@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <div className="flex justify-around items-center gap-6 md:gap-10 mt-10 md:mt-20">
+    <div className="flex justify-around items-center gap-6 md:gap-10 mt-10 md:mt-20 px-5 sm:px-16">
       <motion.div
         className="flex flex-col justify-center items-center lg:items-start text-center lg:text-start gap-6 md:gap-10 w-full lg:w-[60%]"
         initial={{ opacity: 0, x: -50 }}
