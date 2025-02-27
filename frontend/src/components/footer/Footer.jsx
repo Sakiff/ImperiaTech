@@ -3,20 +3,20 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
-  // Səhifəni yuxarı qaytarmaq üçün funksiya
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <motion.footer
-      className="bg-[#1C1C1C] text-white py-10"
+      className="bg-gradient-to-b from-[#0f0f0f]  to-[#CAFF34]/5  text-gray-300 py-12"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true }}
     >
-      <div className="px-5 sm:px-16 mx-auto text-center flex flex-col items-center">
+      <div className="px-6 sm:px-16 mx-auto text-center flex flex-col items-center">
+        {/* Logo */}
         <motion.div
           className="flex justify-center items-center gap-4"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -27,53 +27,40 @@ export default function Footer() {
           <img
             src="/images/Logo.jpg"
             alt="Logo"
-            className="w-10 h-10 rounded-2xl"
+            className="w-12 h-12 rounded-xl"
           />
-          <h1 className="text-2xl">
-            <strong>
-              Imperia<span className="text-[#CAFF34]">Tech</span>
-            </strong>
+          <h1 className="text-2xl text-white font-semibold">
+            Imperia<span className="text-[#CAFF34]">Tech</span>
           </h1>
         </motion.div>
 
+        {/* Navigation */}
         <motion.nav
-          className="mb-6 mt-10 flex space-x-6 text-gray-300 text-sm"
+          className="mb-6 mt-8 flex space-x-6 text-gray-400 text-sm"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <Link
-            to="/"
-            onClick={scrollToTop}
-            className="hover:text-white transition"
-          >
-            Ana səhifə
-          </Link>
-          <Link
-            to="/about"
-            onClick={scrollToTop}
-            className="hover:text-white transition"
-          >
-            Haqqımızda
-          </Link>
-          <Link
-            to="/services"
-            onClick={scrollToTop}
-            className="hover:text-white transition"
-          >
-            Xidmətlərimiz
-          </Link>
-          <Link
-            to="/contact"
-            onClick={scrollToTop}
-            className="hover:text-white transition"
-          >
-            Əlaqə
-          </Link>
+          {[
+            { label: "Ana səhifə", path: "/" },
+            { label: "Haqqımızda", path: "/about" },
+            { label: "Xidmətlərimiz", path: "/services" },
+            { label: "Əlaqə", path: "/contact" },
+          ].map((item, index) => (
+            <Link
+              key={index}
+              to={item.path}
+              onClick={scrollToTop}
+              className="hover:text-[#CAFF34] transition duration-300"
+            >
+              {item.label}
+            </Link>
+          ))}
         </motion.nav>
 
-        <div className="flex-col md:flex-row gap-y-5 border-b border-t p-10 border-gray-400 flex items-center justify-center mt-6 space-x-4 text-gray-400 mb-6 w-full">
+        {/* Contact Information */}
+        <div className="flex-col md:flex-row gap-y-5 border-b border-t p-8 border-gray-600 flex items-center justify-center mt-6 space-x-4 text-gray-400 mb-6 w-full">
           {[
             {
               icon: <Mail size={18} />,
@@ -105,40 +92,50 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Footer Links & Social Icons */}
         <motion.div
-          className="flex flex-col md:flex-row gap-y-5 justify-between items-center mt-10 bg-[#191919] p-5 w-full rounded-3xl"
-          initial={{ opacity: 0, scale: 0.9 }}
+          className="flex flex-col md:flex-row gap-y-4 justify-between items-center mt-6 bg-[#1A1A1A] p-4 w-full rounded-lg"
+          initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1, duration: 0.6 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
           viewport={{ once: true }}
         >
-          <div className="flex space-x-4">
-            {[Facebook, Twitter, Linkedin].map((Icon, index) => (
+          <div className="flex space-x-3">
+            {[
+              { Icon: Facebook, url: "https://facebook.com" },
+              { Icon: Twitter, url: "https://twitter.com" },
+              { Icon: Linkedin, url: "https://linkedin.com" },
+            ].map((item, index) => (
               <motion.a
                 key={index}
-                href="#"
-                className="p-2 bg-[#CAFF34] text-black rounded-full"
-                whileHover={{ scale: 1.2 }}
-                transition={{ type: "spring", stiffness: 200 }}
+                href={item.url}
+                target="_blank"
+                className="p-2 bg-[#CAFF34] text-black rounded-full transition duration-300 hover:bg-white hover:scale-105"
               >
-                <Icon size={18} />
+                <item.Icon size={18} />
               </motion.a>
             ))}
           </div>
 
           <div>
             <p className="text-sm text-gray-400">
-              ImperiaTech All Rights Reserved
+              © {new Date().getFullYear()} ImperiaTech - Bütün hüquqlar qorunur.
             </p>
           </div>
 
           <div className="flex space-x-4 text-sm text-gray-300">
-            <a href="#" className="hover:text-white transition">
-              Privacy Policy
+            <a
+              href="#"
+              className="hover:text-[#CAFF34] transition duration-300"
+            >
+              Gizlilik Siyasəti
             </a>
             <span>|</span>
-            <a href="#" className="hover:text-white transition">
-              Terms of Service
+            <a
+              href="#"
+              className="hover:text-[#CAFF34] transition duration-300"
+            >
+              Xidmət Şərtləri
             </a>
           </div>
         </motion.div>
