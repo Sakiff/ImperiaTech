@@ -3,6 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import Root from "./pages/Root";
 import Home from "./pages/home/Home";
 import NotFound from "./pages/notfound/NotFound";
+import AboutSection from "./pages/about/AboutSection";
+import Services from "./pages/services/Services";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<Root />}>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="about" element={<AboutSection />} />
+          <Route path="services" element={<Services />} />
         </Route>
       </Routes>
     </>
