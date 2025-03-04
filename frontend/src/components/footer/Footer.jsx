@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <motion.footer
-      className="bg-gradient-to-b from-[#0f0f0f]  to-[#CAFF34]/5  text-gray-300 py-12"
+      className="bg-gradient-to-b from-[#0f0f0f] to-[#CAFF34]/5 text-gray-300 py-12"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -69,7 +69,14 @@ export default function Footer() {
             },
             {
               icon: <Phone size={18} />,
-              text: "+91 91813 23 2309",
+              text: (
+                <a
+                  href="tel:+994505853267"
+                  className="hover:text-[#CAFF34] transition duration-300"
+                >
+                  050-585-32-67
+                </a>
+              ),
               delay: 0.6,
             },
             {

@@ -43,11 +43,19 @@ export default function Testimonials() {
               delay: index * 0.3,
               duration: 0.8,
             }}
-            className="bg-[#1E1E1E] rounded-xl p-6 shadow-lg"
+            className="bg-[#1E1E1E] rounded-xl p-6 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl relative overflow-hidden group"
           >
-            <div className="flex items-center gap-4">
+            <div className="absolute inset-0 rounded-xl border-2 border-[#D4FF00] opacity-0 group-hover:opacity-100">
+              <motion.div
+                className="absolute inset-0 w-full h-full border-2 border-[#D4FF00] rounded-xl"
+                initial={{ clipPath: "inset(50% 50% 50% 50%)" }}
+                whileHover={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+              ></motion.div>
+            </div>
+            <div className="flex items-center gap-4 relative z-10">
               {/* Anonim Avatar */}
-              <div className="w-12 h-12 bg-[#D4FF00] rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#D4FF00] rounded-full flex items-center justify-center transition-transform transform hover:rotate-12">
                 <span className="text-black font-bold">
                   {testimonial.jobTitle.slice(0, 1)}
                 </span>
@@ -61,7 +69,7 @@ export default function Testimonials() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-4 text-gray-300"
+              className="mt-4 text-gray-300 relative z-10"
             >
               "{testimonial.review}"
             </motion.p>

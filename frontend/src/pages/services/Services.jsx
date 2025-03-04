@@ -37,16 +37,18 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className={`flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl bg-[#1A1A1A] shadow-lg ${
+              className={`relative flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl bg-[#1A1A1A] shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#242424] group ${
                 index % 2 === 0 ? "md:flex-row-reverse" : ""
-              }`}
+              } before:absolute before:inset-0 before:rounded-xl before:border-4 before:border-[#CAFF34] before:animate-spin-border before:opacity-0 hover:before:opacity-100`}
             >
-              <div className="flex-shrink-0 p-6 bg-[#181818] rounded-xl">
+              <div className="flex-shrink-0 p-6 bg-[#181818] rounded-xl transition-all duration-300 group-hover:rotate-12 group-hover:scale-110">
                 {service.icon}
               </div>
               <div className="text-center md:text-left max-w-lg">
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-300 leading-relaxed">
+                <h3 className="text-2xl font-semibold mb-4 group-hover:text-[#CAFF34] transition-all duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 leading-relaxed group-hover:text-gray-100 transition-all duration-300">
                   {service.description}
                 </p>
               </div>
@@ -54,6 +56,16 @@ export default function Services() {
           ))}
         </div>
       </div>
+      <style jsx>{`
+        @keyframes spin-border {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </section>
   );
 }

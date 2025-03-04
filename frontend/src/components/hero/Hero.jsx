@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
@@ -35,16 +36,18 @@ export default function Hero() {
           göstərmək üçün innovativ və fərdiləşdirilmiş texnologiyalar təklif
           edirik. Bizimlə gələcəyə addım atın!
         </motion.p>
-        <motion.a
-          href="/contact"
-          className="relative overflow-hidden bg-[#CAFF34] py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-lime-400 hover:to-green-500 hover:shadow-[0_0_20px_#a3e635] hover:scale-105 active:scale-95 group"
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent to-lime-300 opacity-50 transition-all duration-300 ease-out group-hover:translate-x-full"></span>
-          <span className="relative z-10">İndi başla</span>
-        </motion.a>
+          <Link
+            to="/contact"
+            className="relative overflow-hidden bg-[#CAFF34] py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-lime-400 hover:to-green-500 hover:shadow-[0_0_20px_#a3e635] hover:scale-105 active:scale-95 group"
+          >
+            <span className="relative z-10">İndi başla</span>
+          </Link>
+        </motion.div>
       </motion.div>
       <motion.div
         className="w-[40%] hidden lg:flex"
