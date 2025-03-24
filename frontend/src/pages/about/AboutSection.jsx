@@ -23,7 +23,7 @@ const teamMembers = [
 
 export default function About() {
   return (
-    <section className="py-16 px-6 sm:px-16 bg-gradient-to-b from-[#0f0f0f] to-[#1a1a1a] text-white">
+    <section className="py-16 px-6 sm:px-16  text-white">
       <motion.div
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
