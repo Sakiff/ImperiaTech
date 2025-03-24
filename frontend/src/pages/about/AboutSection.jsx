@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 const teamMembers = [
   {
     name: "Davud",
     role: "CEO",
-    image: "/images/davudunqusu.png",
+    image: "/images/davud.png",
     bio: "Burada komanda üzvünün qısa bioqrafiyası olacaq. Təcrübələr, bacarıqlar və vəzifələr haqqında məlumat verə bilərsiniz.",
   },
   {
@@ -19,9 +20,19 @@ const teamMembers = [
     image: "/images/sakif.jpeg",
     bio: "Burada komanda üzvünün qısa bioqrafiyası olacaq. Təcrübələr, bacarıqlar və vəzifələr haqqında məlumat verə bilərsiniz.",
   },
+  {
+    name: "Hüseyn",
+    role: "Backend Developer",
+    image:
+      "https://avatars.githubusercontent.com/u/183388100?v=4&quality=lossless",
+    bio: "Burada komanda üzvünün qısa bioqrafiyası olacaq. Təcrübələr, bacarıqlar və vəzifələr haqqında məlumat verə bilərsiniz.",
+  },
 ];
 
 export default function About() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <section className="py-16 px-6 sm:px-16  text-white">
       <motion.div
@@ -39,7 +50,7 @@ export default function About() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {teamMembers.map((member, index) => (
           <motion.div
             key={index}
@@ -52,7 +63,7 @@ export default function About() {
             <img
               src={member.image}
               alt={member.name}
-              className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-[#CAFF34]"
+              className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-[#CAFF34]"
             />
             <h3 className="text-2xl font-semibold text-[#CAFF34]">
               {member.name}

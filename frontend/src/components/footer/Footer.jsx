@@ -81,7 +81,7 @@ export default function Footer() {
             },
             {
               icon: <MapPin size={18} />,
-              text: "Somewhere in the World",
+              text: "Azerbaijan, Baku",
               delay: 0.8,
             },
           ].map((item, index) => (

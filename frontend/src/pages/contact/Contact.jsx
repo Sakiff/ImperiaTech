@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
@@ -45,6 +45,9 @@ export default function Contact() {
       );
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex flex-col lg:flex-row justify-between items-start gap-10 p-5 md:p-16">
       {/* Form Bölməsi */}

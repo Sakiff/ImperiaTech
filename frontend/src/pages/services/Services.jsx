@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Code, Brush, Server } from "lucide-react";
+import { useEffect } from "react";
 
 const services = [
   {
@@ -23,8 +24,11 @@ const services = [
 ];
 
 export default function Services() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
-    <section className="py-16  text-white">
+    <section className="py-16  text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-12 text-[#CAFF34]">
           Xidmətlərimiz
@@ -37,7 +41,7 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className={`relative flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl bg-[#1A1A1A] shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#242424] group ${
+              className={`relative flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl bg-[#1A1A1A] shadow-lg transition-all duration-300 hover:scale-101 hover:bg-[#242424] group ${
                 index % 2 === 0 ? "md:flex-row-reverse" : ""
               } before:absolute before:inset-0 before:rounded-xl before:border-4 before:border-[#CAFF34] before:animate-spin-border before:opacity-0 hover:before:opacity-100`}
             >

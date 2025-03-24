@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hero from "../../components/hero/Hero";
 import Features from "../../components/features/Features";
 import FAQ from "../../components/faq/Faq";
@@ -6,6 +6,9 @@ import Testimonials from "../../components/testimonials/Testimonials";
 import Benefits from "../../components/benefits/Benefits";
 
 export default function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Hero />
