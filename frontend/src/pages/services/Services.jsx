@@ -41,7 +41,7 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
-              className={`relative flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl bg-[#1A1A1A] shadow-lg transition-all duration-300 hover:scale-101 hover:bg-[#242424] group ${
+              className={`relative flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl bg-[#1E1E1E] shadow-lg transition-all duration-300 hover:scale-101 hover:bg-[#242424] group ${
                 index % 2 === 0 ? "md:flex-row-reverse" : ""
               } before:absolute before:inset-0 before:rounded-xl before:border-4 before:border-[#CAFF34] before:animate-spin-border before:opacity-0 hover:before:opacity-100`}
             >
