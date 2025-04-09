@@ -71,10 +71,10 @@ export default function Footer() {
               icon: <Phone size={18} />,
               text: (
                 <a
-                  href="tel:+994505853267"
+                  href="tel:+994557557733"
                   className="hover:text-[#CAFF34] transition duration-300"
                 >
-                  050-585-32-67
+                  055-755-77-33
                 </a>
               ),
               delay: 0.6,
