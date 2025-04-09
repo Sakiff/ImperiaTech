@@ -6,7 +6,7 @@ const faqData = [
   {
     question: "Veb saytınızı nə qədər müddətə hazırlayırsınız?",
     answer:
-      "Veb saytların hazırlanma müddəti, layihənin tələblərinə görə dəyişir. Adətən, 1-2 həftə ərzində tamamlanır.",
+      "Veb saytların hazırlanma müddəti, layihənin tələblərinə görə dəyişir. Adətən, 2-3 həftə ərzində tamamlanır.",
   },
   {
     question: "SEO xidmətləriniz nələri əhatə edir?",
