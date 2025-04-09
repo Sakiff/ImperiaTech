@@ -71,9 +71,7 @@ export default function Services() {
                 delay: index * 0.1,
               }}
               viewport={{ once: true }}
-              className={`relative flex flex-col md:flex-row items-center gap-8 p-8 rounded-xl bg-[#1A1A1A] shadow-lg transition-all duration-300 hover:scale-101 hover:bg-[#242424] group ${
-                index % 2 === 0 ? "md:flex-row-reverse" : ""
-              } before:absolute before:inset-0 before:rounded-xl before:border-4 before:border-[#CAFF34] before:animate-spin-border before:opacity-0 hover:before:opacity-100`}
+              className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group"
             >
               <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#CAFF34]/10 border border-[#CAFF34]/30 mb-6 text-[#CAFF34] group-hover:rotate-6 transition-transform duration-300">
                 {service.icon}
