@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Hero from "../../components/hero/Hero";
 import Features from "../../components/features/Features";
-import FAQ from "../../components/faq/Faq";
+import FAQ from "../../components/faq/FAQ";
 import Testimonials from "../../components/testimonials/Testimonials";
 import Benefits from "../../components/benefits/Benefits";
 import { Helmet } from "react-helmet";
