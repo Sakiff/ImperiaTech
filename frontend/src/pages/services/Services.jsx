@@ -8,6 +8,7 @@ import {
   HelpCircle,
 } from "lucide-react";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 
 const services = [
   {
@@ -54,38 +55,61 @@ export default function Services() {
   }, []);
 
   return (
-    <section className="py-20 px-6 text-white">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 text-[#CAFF34] drop-shadow-lg">
-          Xidmətlərimiz
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {services.map((service, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                ease: "easeOut",
-                delay: index * 0.1,
-              }}
-              viewport={{ once: true }}
-              className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group"
-            >
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#CAFF34]/10 border border-[#CAFF34]/30 mb-6 text-[#CAFF34] group-hover:rotate-6 transition-transform duration-300">
-                {service.icon}
-              </div>
-              <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-[#CAFF34] transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-gray-300 leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
-                {service.description}
-              </p>
-            </motion.div>
-          ))}
+    <>
+      <Helmet>
+        <title>Xidmətlərimiz | Imperia Tech</title>
+        <meta
+          name="description"
+          content="Imperia Tech — Veb inkişaf, App/Web tətbiqləri, dizayn, SMM, texniki dəstək və konsultasiya xidmətləri. Brendinizi texnologiya ilə gücləndirin."
+        />
+        <meta
+          name="keywords"
+          content="veb inkişaf, app hazırlama, dizayn, SMM xidməti, texniki dəstək, konsultasiya, Imperia Tech, rəqəmsal agentlik"
+        />
+        <meta name="author" content="Imperia Tech" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content="Xidmətlərimiz | Imperia Tech" />
+        <meta
+          property="og:description"
+          content="Rəqəmsal transformasiyanız üçün veb sayt, mobil app, dizayn və marketinq həlləri. Imperia Tech ilə inkişaf edin."
+        />
+        <meta property="og:url" content="https://imperiagroups.az/services" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      <section className="py-20 px-6 text-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center mb-16 text-[#CAFF34] drop-shadow-lg">
+            Xidmətlərimiz
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  ease: "easeOut",
+                  delay: index * 0.1,
+                }}
+                viewport={{ once: true }}
+                className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group"
+              >
+                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#CAFF34]/10 border border-[#CAFF34]/30 mb-6 text-[#CAFF34] group-hover:rotate-6 transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-[#CAFF34] transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-gray-300 leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
+                  {service.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

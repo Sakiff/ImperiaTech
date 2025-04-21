@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -64,7 +64,7 @@ export default function Footer() {
           {[
             {
               icon: <Mail size={18} />,
-              text: "hello@skillbirdge.com",
+              text: "info@imperiagroups.az",
               delay: 0.4,
             },
             {
@@ -109,8 +109,10 @@ export default function Footer() {
         >
           <div className="flex space-x-3">
             {[
-              { Icon: Facebook, url: "https://facebook.com" },
-              { Icon: Twitter, url: "https://twitter.com" },
+              {
+                Icon: Instagram,
+                url: "https://www.instagram.com/imperia_groups/",
+              },
               { Icon: Linkedin, url: "https://linkedin.com" },
             ].map((item, index) => (
               <motion.a
@@ -126,24 +128,8 @@ export default function Footer() {
 
           <div>
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} ImperiaTech - Bütün hüquqlar qorunur.
+              © {new Date().getFullYear()} ImperiaTech - Bütün hüquqlar qorunur
             </p>
-          </div>
-
-          <div className="flex space-x-4 text-sm text-gray-300">
-            <a
-              href="#"
-              className="hover:text-[#CAFF34] transition duration-300"
-            >
-              Gizlilik Siyasəti
-            </a>
-            <span>|</span>
-            <a
-              href="#"
-              className="hover:text-[#CAFF34] transition duration-300"
-            >
-              Xidmət Şərtləri
-            </a>
           </div>
         </motion.div>
       </div>
