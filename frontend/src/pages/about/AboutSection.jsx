@@ -15,13 +15,19 @@ const teamMembers = [
     bio: "Mən informasiya texnologiyaları sahəsində ixtisaslaşmış, frontend inkişafı üzrə çalışan bir proqramçıyam. İstifadəçi təcrübəsini ön planda tutaraq veb interfeyslərin hazırlanması və optimallaşdırılması ilə məşğulam. Hal-hazırda Imperia Tech komandasında frontend developer kimi fəaliyyət göstərirəm və müxtəlif veb layihələrin reallaşdırılmasında iştirak edirəm. Məqsədim müasir texnoloji tələblərə cavab verən funksional və estetik həllər yaratmaqdır.",
   },
   {
+    name: "Hüseyn",
+    role: "MERN Stack Developer",
+    image: "/images/SEFERELIYEV.jpeg",
+    bio: "Mən MERN stack üzrə ixtisaslaşmış web developerəm. HTML, CSS və JavaScript texnologiyalarında güclü baza biliklərim var. Frontend tərəfdə React və Redux ilə interaktiv və sürətli interfeyslər hazırlayıram. Backend tərəfdə isə Node.js və Express.js istifadə edərək funksional serverlər qururam. MongoDB ilə məlumat bazalarını effektiv şəkildə idarə edirəm. Layihələrimdə istifadəçi təcrübəsinə və performansa xüsusi önəm verirəm. Komanda şəklində işləmə bacarığına sahibəm və Agile metodologiyasına uyğun çalışıram. Yeni texnologiyaları öyrənməyə marağım böyükdür və daim özümü inkişaf etdirməyə çalışıram. Real dünya problemlərinə texnoloji həllər gətirmək mənim üçün motivasiya mənbəyidir. Məqsədim, keyfiyyətli və effektiv veb tətbiqləri hazırlayaraq istifadəçilərə dəyər yaratmaqdır.",
+  },
+  {
     name: "Sakif",
     role: "Frontend Developer",
     image: "/images/sakif.jpeg",
     bio: "Mən veb inkişafı sahəsində fəaliyyət göstərən, daim öz üzərində çalışan bir gəncəm. Frontend əsas istiqamətim olsa da, backend texnologiyaları ilə də maraqlanıram. HTML, CSS, JavaScript, Tailwind və React ilə işləməyi sevirəm. Eyni zamanda Node.js və Express.js ilə sadə server tərəfli tətbiqlər hazırlayıram. Layihələrimdə funksionallıqla yanaşı, estetik görünüşə də xüsusi önəm verirəm. Komanda ilə işləmək və yeni biliklər əldə etmək mənim üçün motivasiya qaynağıdır. Məqsədim daim daha keyfiyyətli və istifadəçi yönümlü məhsullar yaratmaqdır.",
   },
   {
-    name: "Hüseyn",
+    name: "Hüseyin",
     role: "Backend Developer",
     image:
       "https://avatars.githubusercontent.com/u/183388100?v=4&quality=lossless",
@@ -63,7 +69,7 @@ export default function About() {
         />
         <meta property="og:image:alt" content="İmperia Tech Logo" />
       </Helmet>
-      ;
+
       <div className="max-w-5xl mx-auto mb-10 text-center">
         <h2 className="text-4xl font-bold text-white mb-6">Kimik Biz?</h2>
         <p className="text-lg text-gray-400 leading-relaxed">
@@ -73,7 +79,7 @@ export default function About() {
           gələcəyi dizayn edirik.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-start">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
         {teamMembers.map((member, index) => {
           const isExpanded = expandedIndex === index;
           return (
@@ -101,7 +107,7 @@ export default function About() {
               >
                 {member.bio}
               </motion.p>
-              <p className="mt-2 text-sm text-[#CAFF34] underline">
+              <p className="mt-2 text-sm text-[#CAFF34] ">
                 {isExpanded ? "Bağla" : "Ətraflı oxu"}
               </p>
             </motion.div>
