@@ -31,15 +31,15 @@ export default function Contact() {
 
     emailjs
       .send(
-        "service_kylnpml",
-        "template_t7u7xxl",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           to_name: "İmperia Tech",
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "PDv5HHA5t9X0WIIgR"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(() => {
         toast.success("Mesaj uğurla göndərildi!");
@@ -128,7 +128,7 @@ export default function Contact() {
             {/* reCAPTCHA yalnız ikinci göndərişdən sonra görünəcək */}
             {hasSubmittedOnce && (
               <ReCAPTCHA
-                sitekey="6Lc3hx8rAAAAAIaTK_cxrz8lqXVkRcYsA27yYK3H"
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                 onChange={(token) => setRecaptchaToken(token)}
                 theme="dark"
               />
