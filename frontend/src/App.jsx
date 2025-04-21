@@ -1,12 +1,15 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Root from "./pages/Root";
-import Home from "./pages/home/Home";
-import NotFound from "./pages/notfound/NotFound";
-import AboutSection from "./pages/about/AboutSection";
-import Services from "./pages/services/Services";
-import Contact from "./pages/contact/Contact";
+import { lazy, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
+
+// Lazy yüklenen komponentlər
+const Root = lazy(() => import("./pages/Root"));
+const Home = lazy(() => import("./pages/home/Home"));
+const NotFound = lazy(() => import("./pages/notfound/NotFound"));
+const AboutSection = lazy(() => import("./pages/about/AboutSection"));
+const Services = lazy(() => import("./pages/services/Services"));
+const Contact = lazy(() => import("./pages/contact/Contact"));
 
 function App() {
   return (
@@ -19,16 +22,18 @@ function App() {
         <img src="./images/Group.png" alt="Background" />
       </div>
 
-      {/* Routes */}
-      <Routes>
-        <Route path="/" element={<Root />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<AboutSection />} />
-          <Route path="services" element={<Services />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+      {/* Suspense ilə bükülmüş routing */}
+      <Suspense fallback={<div className="text-white p-10">Yüklənir...</div>}>
+        <Routes>
+          <Route path="/" element={<Root />}>
+            <Route index element={<Home />} />
+            <Route path="about" element={<AboutSection />} />
+            <Route path="services" element={<Services />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </>
   );
 }
