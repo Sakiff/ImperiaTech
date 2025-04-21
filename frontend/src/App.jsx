@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
-import Spinner from "./components/Spinner";
+import Spinner from "./components/spinner/Spinner";
 
 // Lazy yüklenen komponentlər
 const Root = lazy(() => import("./pages/Root"));
