@@ -24,7 +24,7 @@ export default function Navbar() {
           <img
             src="/images/Logo.jpg"
             alt="Logo"
-            className="w-20 h-15 rounded-2xl"
+            className="w-15 h-15 rounded-2xl"
           />
           <h1 className="text-2xl">
             <strong>
