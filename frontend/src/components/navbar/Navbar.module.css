@@ -18,6 +18,10 @@
   border-radius: 15px;
 }
 
-.navLink:hover {
+.light .navLink:hover {
   background-color: #e5e5e5;
+}
+
+.navLink:hover {
+  background-color: #262626;
 }

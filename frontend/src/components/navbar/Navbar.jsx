@@ -50,34 +50,6 @@ export default function Navbar() {
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </motion.button>
-        {/* Temanı dəyişdirən slider */}
-        <motion.div
-          className="relative items-center cursor-pointer flex lg:hidden "
-          onClick={toggleTheme}
-        >
-          <div
-            className={`w-14 h-8 rounded-full p-1 ${
-              isDarkMode ? "bg-[#CAFF34]" : "bg-[#1D6696]"
-            }`}
-          >
-            <motion.div
-              className="w-6 h-6 rounded-full bg-white flex justify-center items-center "
-              transition={{ type: "tween", stiffness: 700, damping: 10 }}
-              style={{
-                x: isDarkMode ? 24 : 0,
-                transition: "all 0.2s ease-in-out", // Dairənin hərəkət etdiyi yer
-              }}
-            >
-              <div className=" inset-0 flex items-center justify-center">
-                {isDarkMode ? (
-                  <Moon size={20} className="text-gray-700" /> // Ay ikonu
-                ) : (
-                  <Sun size={20} className="text-yellow-500" /> // Gün ikonu
-                )}
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
 
       <ul className="justify-center items-center gap-3 hidden lg:flex">
