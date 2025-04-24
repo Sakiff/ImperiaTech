@@ -66,7 +66,7 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Bizimlə Əlaqə - Imperia Tech</title>
+        <title>Bizimlə Əlaqə | Imperia Tech</title>
         <meta
           name="description"
           content="İmperia Tech ilə əlaqə saxlayın. Xidmətlərimiz və komandamız haqqında daha ətraflı məlumat üçün bizimlə əlaqə qurun."
