@@ -1,15 +1,29 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const { isDarkMode } = useTheme();
+
+  const bgGradient = isDarkMode
+    ? "from-[#0f0f0f] to-[#CAFF34]/5"
+    : "from-[#f0f0f0] to-[#1D6696]/5";
+
+  const textColor = isDarkMode ? "text-gray-300" : "text-gray-800";
+  const subTextColor = isDarkMode ? "text-gray-400" : "text-gray-600";
+  const iconColor = isDarkMode ? "#CAFF34" : "#1D6696";
+  const socialBg = isDarkMode ? "#CAFF34" : "#1D6696";
+
+  const hoverText = isDarkMode
+    ? "hover:text-[#CAFF34]"
+    : "hover:text-[#1D6696]";
+
+  const borderColor = isDarkMode ? "border-gray-600" : "border-gray-300";
 
   return (
     <motion.footer
-      className="bg-gradient-to-b from-[#0f0f0f] to-[#CAFF34]/5 text-gray-300 py-12"
+      className={`bg-gradient-to-b ${bgGradient} ${textColor} py-12`}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -29,14 +43,14 @@ export default function Footer() {
             alt="Logo"
             className="w-12 h-12 rounded-xl"
           />
-          <h1 className="text-2xl text-white font-semibold">
-            Imperia<span className="text-[#CAFF34]">Tech</span>
+          <h1 className="text-2xl font-semibold ">
+            Imperia<span style={{ color: iconColor }}>Tech</span>
           </h1>
         </motion.div>
 
         {/* Navigation */}
         <motion.nav
-          className="mb-6 mt-8 flex space-x-6 text-gray-400 text-sm"
+          className={`mb-6 mt-8 flex space-x-6 text-sm ${subTextColor}`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
@@ -51,16 +65,18 @@ export default function Footer() {
             <Link
               key={index}
               to={item.path}
-              onClick={scrollToTop}
-              className="hover:text-[#CAFF34] transition duration-300"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className={`transition duration-300 ${hoverText}`}
             >
               {item.label}
             </Link>
           ))}
         </motion.nav>
 
-        {/* Contact Information */}
-        <div className="flex-col md:flex-row gap-y-5 border-b border-t p-8 border-gray-600 flex items-center justify-center mt-6 space-x-4 text-gray-400 mb-6 w-full">
+        {/* Contact */}
+        <div
+          className={`flex-col md:flex-row gap-y-5 border-b border-t p-8 flex items-center justify-center mt-6 space-x-4 ${borderColor} ${subTextColor} mb-6 w-full`}
+        >
           {[
             {
               icon: <Mail size={18} />,
@@ -72,7 +88,7 @@ export default function Footer() {
               text: (
                 <a
                   href="tel:+994557557733"
-                  className="hover:text-[#CAFF34] transition duration-300"
+                  className={`transition duration-300 ${hoverText}`}
                 >
                   055-755-77-33
                 </a>
@@ -93,15 +109,17 @@ export default function Footer() {
               transition={{ delay: item.delay, duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <span className="text-[#CAFF34]">{item.icon}</span>
+              <span style={{ color: iconColor }}>{item.icon}</span>
               <span>{item.text}</span>
             </motion.div>
           ))}
         </div>
 
-        {/* Footer Links & Social Icons */}
+        {/* Social & Copyright */}
         <motion.div
-          className="flex flex-col md:flex-row gap-y-4 justify-between items-center mt-6 bg-[#1A1A1A] p-4 w-full rounded-lg"
+          className={`flex flex-col md:flex-row gap-y-4 justify-between items-center mt-6 w-full p-4 rounded-lg ${
+            isDarkMode ? "bg-[#1A1A1A]" : "bg-[#E9F3FB]"
+          }`}
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.8, duration: 0.5 }}
@@ -119,7 +137,11 @@ export default function Footer() {
                 key={index}
                 href={item.url}
                 target="_blank"
-                className="p-2 bg-[#CAFF34] text-black rounded-full transition duration-300 hover:bg-white hover:scale-105"
+                className="p-2 rounded-full transition duration-300 hover:scale-105"
+                style={{
+                  backgroundColor: socialBg,
+                  color: isDarkMode ? "black" : "white",
+                }}
               >
                 <item.Icon size={18} />
               </motion.a>
@@ -127,7 +149,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="text-sm text-gray-400">
+            <p className={`text-sm ${subTextColor}`}>
               © {new Date().getFullYear()} ImperiaTech - Bütün hüquqlar qorunur
             </p>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
 
 const faqData = [
   {
@@ -32,22 +33,36 @@ const faqData = [
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
+  const { isDarkMode } = useTheme();
+  const primaryColor = isDarkMode ? "#D4FF00" : "#1D6696";
+  const secondaryColor = isDarkMode ? "#32FF32" : "#1D6696";
+  const bgColor = isDarkMode ? "bg-[#0f0f0f]/50" : "bg-[#f0f0f0]";
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="bg-[#0f0f0f]/50 backdrop-blur-md py-10">
+    <div className={`${bgColor} backdrop-blur-md py-10`}>
       <div className="my-16 px-5 sm:px-16">
-        <h1 className="text-4xl sm:text-5xl font-bold text-center mb-5 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
+        <h1
+          className="text-4xl sm:text-5xl font-bold text-center mb-5 text-transparent bg-clip-text"
+          style={{
+            backgroundImage: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`,
+          }}
+        >
           Tez-tez Verilən Suallar
         </h1>
 
-        <p className="text-center text-lg text-gray-300 mb-10">
+        <p
+          className={`text-center text-lg mb-10 ${
+            isDarkMode ? "text-gray-300" : "text-gray-700"
+          }`}
+        >
           Sizdən tez-tez aldığımız suallar və cavablar. Bizə daha çox sualınız
           varsa, bizə yazın!
         </p>
+
         <div className="space-y-4">
           {faqData.map((item, index) => (
             <motion.div
@@ -60,17 +75,24 @@ export default function FAQ() {
                 delay: index * 0.1,
               }}
               viewport={{ once: true }}
-              className={`relative bg-[#1E1E1E] rounded-xl p-6 transition-all duration-300 ${
-                openIndex === index
-                  ? "border-2 border-[#CAFF34]"
-                  : "border-none"
+              className={`relative rounded-xl p-6 transition-all duration-300 ${
+                openIndex === index ? `border-2` : `border border-transparent`
+              } ${isDarkMode ? "bg-[#1E1E1E]" : "bg-white"} ${
+                openIndex === index ? `border-[${primaryColor}]` : ""
               }`}
+              style={{
+                borderColor: openIndex === index ? primaryColor : "transparent",
+              }}
             >
               <div
                 className="flex justify-between items-center cursor-pointer"
                 onClick={() => toggleAccordion(index)}
               >
-                <h3 className="text-2xl font-semibold text-white">
+                <h3
+                  className={`text-2xl font-semibold ${
+                    isDarkMode ? "text-white" : "text-black"
+                  }`}
+                >
                   {item.question}
                 </h3>
                 <ChevronDown
@@ -85,7 +107,9 @@ export default function FAQ() {
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
                   transition={{ duration: 0.5 }}
-                  className="mt-4 text-gray-300 overflow-hidden"
+                  className={`mt-4 overflow-hidden ${
+                    isDarkMode ? "text-gray-300" : "text-gray-700"
+                  }`}
                 >
                   {item.answer}
                 </motion.div>

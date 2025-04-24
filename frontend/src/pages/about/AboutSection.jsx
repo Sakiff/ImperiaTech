@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { useTheme } from "../../context/ThemeContext";
+
 const teamMembers = [
   {
     name: "Davud",
@@ -37,6 +39,9 @@ const teamMembers = [
 
 export default function About() {
   const [expandedIndex, setExpandedIndex] = useState(null);
+  const { isDarkMode } = useTheme();
+  const primaryColor = isDarkMode ? "#CAFF34" : "#1D6696";
+  const textColor = isDarkMode ? "text-white" : "text-gray-800";
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -71,12 +76,14 @@ export default function About() {
       </Helmet>
 
       <div className="max-w-5xl mx-auto mb-10 text-center">
-        <h2 className="text-4xl font-bold text-white mb-6">Kimik Biz?</h2>
+        <h2 className={`text-4xl font-bold text-[${primaryColor}] mb-6`}>
+          Kimik Biz?
+        </h2>
         <p className="text-lg text-gray-400 leading-relaxed">
           Texnologiya dünyasında yeni imkanlar yaradan{" "}
-          <strong className="text-[#CAFF34]">ImperiaTech</strong> komandası,
-          müasir həllərlə biznesləri gücləndirir. Yalnız kod yazmırıq – biz
-          gələcəyi dizayn edirik.
+          <strong className={`text-[${primaryColor}]`}>ImperiaTech</strong>{" "}
+          komandası, müasir həllərlə biznesləri gücləndirir. Yalnız kod yazmırıq
+          – biz gələcəyi dizayn edirik.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
@@ -87,27 +94,34 @@ export default function About() {
               layout
               key={index}
               onClick={() => setExpandedIndex(isExpanded ? null : index)}
-              className="bg-[#1e1e1e] p-6 rounded-xl shadow-lg text-center cursor-pointer overflow-hidden"
+              className={`p-6 rounded-xl shadow-lg text-center cursor-pointer overflow-hidden ${
+                isDarkMode
+                  ? "bg-[#1E1E1E] border-transparent hover:border-[#D4FF00]"
+                  : "bg-white border-gray-200 hover:border-[#1D6696] shadow-md"
+              }`}
               transition={{ layout: { duration: 0.4, type: "spring" } }}
             >
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-[#CAFF34]"
+                className="w-24 h-24 rounded-full object-cover mx-auto mb-4 "
+                style={{
+                  border: `4px solid ${primaryColor}`,
+                }}
               />
-              <h3 className="text-xl font-semibold text-[#CAFF34]">
+              <h3 className={`text-xl font-semibold text-[${primaryColor}]`}>
                 {member.name}
               </h3>
               <p className="text-gray-400 text-sm mb-2">{member.role}</p>
               <motion.p
-                className="text-gray-300 text-sm"
+                className={`${textColor} text-sm`}
                 initial={false}
                 animate={{ height: isExpanded ? "auto" : "60px" }}
                 style={{ overflow: "hidden" }}
               >
                 {member.bio}
               </motion.p>
-              <p className="mt-2 text-sm text-[#CAFF34] ">
+              <p className={`mt-2 text-sm text-[${primaryColor}] `}>
                 {isExpanded ? "Bağla" : "Ətraflı oxu"}
               </p>
             </motion.div>

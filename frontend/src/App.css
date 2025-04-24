@@ -1,10 +1,27 @@
+/* Ümumi stil: */
 body {
-  background-color: #191919;
-  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Tema dəyişdikdə keçid animasiyası */
 }
 
+/* Light Mode */
+body.light-mode {
+  background-color: #fafafa; /* Yumuşaq ağ fon */
+  color: #000000; /* Qara yazı */
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #191919; /* Tünd fon */
+  color: white; /* Ağ yazı */
+}
+
+/* Aktiv elementlər üçün stil */
 .active {
   background-color: #262626;
   border-radius: 15px;
   transition: 0.6s all ease;
+}
+
+body.light-mode .active {
+  background-color: #e5e5e5;
 }

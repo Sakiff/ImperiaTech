@@ -4,6 +4,7 @@ import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Helmet } from "react-helmet";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,7 +15,10 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [hasSubmittedOnce, setHasSubmittedOnce] = useState(false);
-
+  const { isDarkMode } = useTheme();
+  const primaryColor = isDarkMode ? "#CAFF34" : "#1D6696";
+  const textColor = isDarkMode ? "text-white" : "text-gray-800";
+  const buttonTextColor = isDarkMode ? "text-gray-800" : "text-white";
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -86,12 +90,16 @@ export default function Contact() {
       <div className="flex flex-col lg:flex-row justify-between items-start gap-10 p-5 md:p-16 text-white min-h-screen">
         {/* Form Bölməsi */}
         <motion.div
-          className="w-full lg:w-1/2 bg-gradient-to-br from-[#0F6018] via-[#1C1C1C] to-[#1C1C1C] shadow-xl rounded-2xl p-8 border border-gray-600"
+          className={`w-full lg:w-1/2 bg-[${
+            isDarkMode ? "#1C1C1C" : "#ffffff"
+          }] shadow-xl rounded-2xl p-8 border border-gray-600`}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         >
-          <h2 className="text-4xl font-extrabold mb-6 text-[#CAFF34] text-center">
+          <h2
+            className={`text-4xl font-extrabold mb-6 text-[${primaryColor}] text-center`}
+          >
             Bizimlə Əlaqə
           </h2>
           <form onSubmit={handleSubmit} className="flex flex-col gap-6">
@@ -103,7 +111,9 @@ export default function Contact() {
               onChange={handleChange}
               required
               disabled={loading}
-              className="border border-gray-500 bg-[#1C1C1C] text-white rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all"
+              className={`border border-gray-500 bg-[${
+                isDarkMode ? "#1C1C1C" : "#ffffff"
+              }] ${textColor} rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all`}
             />
             <input
               type="email"
@@ -113,7 +123,9 @@ export default function Contact() {
               onChange={handleChange}
               required
               disabled={loading}
-              className="border border-gray-500 bg-[#1C1C1C] text-white rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all"
+              className={`border border-gray-500 bg-[${
+                isDarkMode ? "#1C1C1C" : "#ffffff"
+              }] ${textColor} rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all`}
             />
             <textarea
               name="message"
@@ -122,7 +134,9 @@ export default function Contact() {
               onChange={handleChange}
               required
               disabled={loading}
-              className="border border-gray-500 bg-[#1C1C1C] text-white rounded-lg p-4 w-full h-32 focus:outline-none focus:border-[#CAFF34] transition-all"
+              className={`border border-gray-500 bg-[${
+                isDarkMode ? "#1C1C1C" : "#ffffff"
+              }] ${textColor} rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all`}
             ></textarea>
 
             {/* reCAPTCHA yalnız ikinci göndərişdən sonra görünəcək */}
@@ -130,14 +144,16 @@ export default function Contact() {
               <ReCAPTCHA
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                 onChange={(token) => setRecaptchaToken(token)}
-                theme="dark"
+                theme={`${isDarkMode ? "dark" : "light"}`}
               />
             )}
 
             <motion.button
               type="submit"
-              className="bg-[#CAFF34] text-black font-bold py-3 px-6 rounded-xl cursor-pointer hover:bg-green-500 transition-all flex justify-center items-center shadow-md"
-              whileHover={!loading ? { scale: 1.05 } : {}}
+              className={`bg-[${
+                isDarkMode ? "#CAFF34" : "#1D6696"
+              }] ${buttonTextColor} font-bold py-3 px-6 rounded-xl cursor-pointer  transition-all flex justify-center items-center shadow-md`}
+              whileHover={!loading ? { scale: 1.02 } : {}}
               whileTap={!loading ? { scale: 0.95 } : {}}
               disabled={loading}
             >
@@ -153,7 +169,7 @@ export default function Contact() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         >
-          <h2 className="text-4xl font-extrabold mb-6 text-[#CAFF34]">
+          <h2 className={`text-4xl font-extrabold mb-6 text-[${primaryColor}]`}>
             Ünvanımız
           </h2>
           <div className="w-full h-80 rounded-xl overflow-hidden shadow-lg border border-gray-600">

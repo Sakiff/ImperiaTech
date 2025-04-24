@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "../../context/ThemeContext";
 
 const testimonials = [
   {
@@ -20,13 +21,24 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const { isDarkMode } = useTheme();
+  const bgColor = isDarkMode ? "bg-[#1E1E1E]" : "bg-[#f9f9f9]";
+  const textColor = isDarkMode ? "text-white" : "text-gray-800";
+  const subTextColor = isDarkMode ? "text-gray-400" : "text-gray-600";
+  const primaryColor = isDarkMode ? "#D4FF00" : "#1D6696";
+
   return (
     <div className="my-16 px-5 sm:px-16">
-      <h1 className="text-4xl p-2 sm:text-5xl font-bold text-center mb-5 bg-gradient-to-r from-[#D4FF00] to-[#32FF32] text-transparent bg-clip-text">
+      <h1
+        className="text-4xl sm:text-5xl font-bold text-center mb-5 text-transparent bg-clip-text"
+        style={{
+          backgroundImage: `linear-gradient(to right, ${primaryColor}, ${primaryColor})`,
+        }}
+      >
         Müştəri Rəyləri
       </h1>
 
-      <p className="text-center text-lg text-gray-300 mb-8">
+      <p className={`text-center text-lg mb-8 ${subTextColor}`}>
         Bizimlə işləyən müştərilərimizin fikirləri. İmperia Tech ilə çalışmaq,
         işinizi bir addım irəli aparacaq!
       </p>
@@ -43,33 +55,41 @@ export default function Testimonials() {
               delay: index * 0.3,
               duration: 0.8,
             }}
-            className="bg-[#1E1E1E] rounded-xl p-6 shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl relative overflow-hidden group"
+            className={`${bgColor} rounded-xl p-6 shadow-lg hover:shadow-xl transition-transform transform hover:scale-[1.03] relative overflow-hidden group`}
           >
-            <div className="absolute inset-0 rounded-xl border-2 border-[#D4FF00] opacity-0 group-hover:opacity-100">
+            <div
+              className="absolute inset-0 rounded-xl border-2 opacity-0 group-hover:opacity-100"
+              style={{ borderColor: primaryColor }}
+            >
               <motion.div
-                className="absolute inset-0 w-full h-full border-2 border-[#D4FF00] rounded-xl"
+                className="absolute inset-0 w-full h-full border-2 rounded-xl"
                 initial={{ clipPath: "inset(50% 50% 50% 50%)" }}
                 whileHover={{ clipPath: "inset(0% 0% 0% 0%)" }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-              ></motion.div>
+                style={{ borderColor: primaryColor }}
+              />
             </div>
+
             <div className="flex items-center gap-4 relative z-10">
-              {/* Anonim Avatar */}
-              <div className="w-12 h-12 bg-[#D4FF00] rounded-full flex items-center justify-center transition-transform transform hover:rotate-12">
-                <span className="text-black font-bold">
-                  {testimonial.jobTitle.slice(0, 1)}
-                </span>
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center text-black font-bold"
+                style={{ backgroundColor: primaryColor }}
+              >
+                {testimonial.jobTitle.slice(0, 1)}
               </div>
               <div>
-                <p className="font-semibold text-white">Anonim Müştəri</p>
-                <p className="text-gray-400 text-sm">{testimonial.jobTitle}</p>
+                <p className={`font-semibold ${textColor}`}>Anonim Müştəri</p>
+                <p className={`text-sm ${subTextColor}`}>
+                  {testimonial.jobTitle}
+                </p>
               </div>
             </div>
+
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="mt-4 text-gray-300 relative z-10"
+              className={`mt-4 ${subTextColor} relative z-10`}
             >
               "{testimonial.review}"
             </motion.p>

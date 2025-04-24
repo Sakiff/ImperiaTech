@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
+import { useTheme } from "../../context/ThemeContext";
 
 const services = [
   {
@@ -54,6 +55,11 @@ export default function Services() {
     window.scrollTo(0, 0);
   }, []);
 
+  const { isDarkMode } = useTheme();
+  const primaryColor = isDarkMode ? "#CAFF34" : "#1D6696";
+  const headerTextColor = isDarkMode ? "text-white" : "text-gray-800";
+  const textColor = isDarkMode ? "text-gray-400" : "text-gray-500";
+
   return (
     <>
       <Helmet>
@@ -79,7 +85,9 @@ export default function Services() {
 
       <section className="py-20 px-6 text-white">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16 text-[#CAFF34] drop-shadow-lg">
+          <h2
+            className={`text-4xl font-bold text-center mb-16 text-[${primaryColor}] drop-shadow-lg`}
+          >
             Xidmətlərimiz
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -96,15 +104,19 @@ export default function Services() {
                 viewport={{ once: true }}
                 className="relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 group"
               >
-                <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[#CAFF34]/10 border border-[#CAFF34]/30 mb-6 text-[#CAFF34] group-hover:rotate-6 transition-transform duration-300">
+                <div
+                  className={`w-16 h-16 flex items-center justify-center rounded-full ${
+                    isDarkMode ? "bg-[#CAFF34]/10" : "bg-[#1D6696]/10"
+                  } border border-[${primaryColor}]/30 mb-6 text-[${primaryColor}] group-hover:rotate-6 transition-transform duration-300`}
+                >
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-semibold mb-4 text-white group-hover:text-[#CAFF34] transition-colors duration-300">
+                <h3
+                  className={`text-2xl font-semibold mb-4 ${headerTextColor} group-hover:text-[${primaryColor}] transition-colors duration-300`}
+                >
                   {service.title}
                 </h3>
-                <p className="text-gray-300 leading-relaxed group-hover:text-gray-100 transition-colors duration-300">
-                  {service.description}
-                </p>
+                <p className={` ${textColor} `}>{service.description}</p>
               </motion.div>
             ))}
           </div>
