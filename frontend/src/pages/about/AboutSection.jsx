@@ -35,6 +35,12 @@ const teamMembers = [
       "https://avatars.githubusercontent.com/u/183388100?v=4&quality=lossless",
     bio: "Mən Həsənov Hüseyn, Back-end developer kimi ixtisaslaşmışam. .NET texnologiyasına əsaslanan backend inkişafı üzrə təcrübəyə malikəm. Performanslı API-lər və güclü məntiqi strukturlar qururam. Imperia Tech-də müxtəlif layihələrdə effektiv backend həlləri üzərində çalışıram. Clean Code və SOLID prinsiplərinə əsaslanaraq genişlənə bilən sistem arxitekturaları qurmağa üstünlük verirəm.Məqsədim istifadəçi ehtiyaclarına cavab verən, etibarlı və inkişaf etdirilə bilən proqram yaratmaqdır.",
   },
+  {
+    name: "Sənan",
+    role: "Frontend Developer",
+    image: "/images/senan.jpeg",
+    bio: 'Mən Sənan Ələkbərovam. Code Academy-ni "Front-end Development" ixtisası üzrə bitirərək HTML, CSS, JavaScript və React kimi texnologiyalarda işləmə bacarığı qazanmışam. React istifadə edərək dinamik və interaktiv veb tətbiqlər yarada bilirəm. Kod yazmaq və problemləri həll etmək mənim üçün həm peşəkar maraq, həm də səyahətdir. Yeni texnologiyalar öyrənməyə və bacarıqlarımı təkmilləşdirməyə hazıram',
+  },
 ];
 
 export default function About() {
@@ -86,7 +92,7 @@ export default function About() {
           – biz gələcəyi dizayn edirik.
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 items-start">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
         {teamMembers.map((member, index) => {
           const isExpanded = expandedIndex === index;
           return (
