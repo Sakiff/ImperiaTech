@@ -16,9 +16,19 @@ export default function Contact() {
   const [recaptchaToken, setRecaptchaToken] = useState(null);
   const [hasSubmittedOnce, setHasSubmittedOnce] = useState(false);
   const { isDarkMode } = useTheme();
+
   const primaryColor = isDarkMode ? "#CAFF34" : "#1D6696";
   const textColor = isDarkMode ? "text-white" : "text-gray-800";
   const buttonTextColor = isDarkMode ? "text-gray-800" : "text-white";
+  const bgColor = isDarkMode ? "#1C1C1C" : "#ffffff";
+  const borderColor = "border border-gray-500";
+  const focusBorderColor = isDarkMode
+    ? "focus:border-[#CAFF34]"
+    : "focus:border-[#1D6696]";
+  const placeholderColor = isDarkMode
+    ? "placeholder-gray-400"
+    : "placeholder-gray-500";
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -87,18 +97,19 @@ export default function Contact() {
           content="https://imperiagroups.az/preview.jpg"
         />
       </Helmet>
+
       <div className="flex flex-col lg:flex-row justify-between items-start gap-10 p-5 md:p-16 text-white min-h-screen">
         {/* Form Bölməsi */}
         <motion.div
-          className={`w-full lg:w-1/2 bg-[${
-            isDarkMode ? "#1C1C1C" : "#ffffff"
-          }] shadow-xl rounded-2xl p-8 border border-gray-600`}
+          className={`w-full lg:w-1/2 shadow-xl rounded-2xl p-8 border border-gray-600`}
+          style={{ backgroundColor: bgColor }}
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         >
           <h2
-            className={`text-4xl font-extrabold mb-6 text-[${primaryColor}] text-center`}
+            className={`text-4xl font-extrabold mb-6 text-center`}
+            style={{ color: primaryColor }}
           >
             Bizimlə Əlaqə
           </h2>
@@ -111,9 +122,8 @@ export default function Contact() {
               onChange={handleChange}
               required
               disabled={loading}
-              className={`border border-gray-500 bg-[${
-                isDarkMode ? "#1C1C1C" : "#ffffff"
-              }] ${textColor} rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all`}
+              className={`${borderColor} ${textColor} ${placeholderColor} ${focusBorderColor} rounded-lg p-4 w-full focus:outline-none `}
+              style={{ backgroundColor: bgColor }}
             />
             <input
               type="email"
@@ -123,39 +133,37 @@ export default function Contact() {
               onChange={handleChange}
               required
               disabled={loading}
-              className={`border border-gray-500 bg-[${
-                isDarkMode ? "#1C1C1C" : "#ffffff"
-              }] ${textColor} rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all`}
+              className={`${borderColor} ${textColor} ${placeholderColor} ${focusBorderColor} rounded-lg p-4 w-full focus:outline-none `}
+              style={{ backgroundColor: bgColor }}
             />
             <textarea
+              key={isDarkMode ? "dark" : "light"}
               name="message"
               placeholder="Mesajınız"
               value={formData.message}
               onChange={handleChange}
               required
               disabled={loading}
-              className={`border border-gray-500 bg-[${
-                isDarkMode ? "#1C1C1C" : "#ffffff"
-              }] ${textColor} rounded-lg p-4 w-full focus:outline-none focus:border-[#CAFF34] transition-all`}
+              className={`${borderColor} ${textColor} ${placeholderColor} ${focusBorderColor} rounded-lg p-4 w-full focus:outline-none `}
+              style={{ backgroundColor: bgColor }}
+              rows={5}
             ></textarea>
 
-            {/* reCAPTCHA yalnız ikinci göndərişdən sonra görünəcək */}
             {hasSubmittedOnce && (
               <ReCAPTCHA
                 sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
                 onChange={(token) => setRecaptchaToken(token)}
-                theme={`${isDarkMode ? "dark" : "light"}`}
+                theme={isDarkMode ? "dark" : "light"}
               />
             )}
 
             <motion.button
               type="submit"
-              className={`bg-[${
-                isDarkMode ? "#CAFF34" : "#1D6696"
-              }] ${buttonTextColor} font-bold py-3 px-6 rounded-xl cursor-pointer  transition-all flex justify-center items-center shadow-md`}
+              className={`font-bold py-3 px-6 rounded-xl cursor-pointer transition-all flex justify-center items-center shadow-md ${buttonTextColor}`}
               whileHover={!loading ? { scale: 1.02 } : {}}
               whileTap={!loading ? { scale: 0.95 } : {}}
               disabled={loading}
+              style={{ backgroundColor: primaryColor }}
             >
               {loading ? "Göndərilir..." : "Göndər"}
             </motion.button>
@@ -169,7 +177,10 @@ export default function Contact() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
         >
-          <h2 className={`text-4xl font-extrabold mb-6 text-[${primaryColor}]`}>
+          <h2
+            className={`text-4xl font-extrabold mb-6`}
+            style={{ color: primaryColor }}
+          >
             Ünvanımız
           </h2>
           <div className="w-full h-80 rounded-xl overflow-hidden shadow-lg border border-gray-600">
