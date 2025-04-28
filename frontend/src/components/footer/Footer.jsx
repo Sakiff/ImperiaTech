@@ -150,7 +150,8 @@ export default function Footer() {
 
           <div>
             <p className={`text-sm ${subTextColor}`}>
-              © {new Date().getFullYear()} ImperiaTech - Bütün hüquqlar qorunur
+              © {new Date().getFullYear()} Imperia Groups - Bütün hüquqlar
+              qorunur
             </p>
           </div>
         </motion.div>
