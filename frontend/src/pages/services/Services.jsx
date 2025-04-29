@@ -10,6 +10,7 @@ import {
 import { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useTheme } from "../../context/ThemeContext";
+import ServiceJsonLd from "../../components/seoJsonLd/ServiceJsonLd";
 
 const services = [
   {
@@ -82,6 +83,8 @@ export default function Services() {
         <meta property="og:url" content="https://imperiagroups.az/services" />
         <meta property="og:type" content="website" />
       </Helmet>
+
+      <ServiceJsonLd />
 
       <section className="py-20 px-6 text-white">
         <div className="container mx-auto px-6">

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { useTheme } from "../../context/ThemeContext";
+import AboutJsonLd from "../../components/seoJsonLd/AboutJsonLd";
 
 const teamMembers = [
   {
@@ -81,15 +82,20 @@ export default function About() {
         <meta property="og:image:alt" content="İmperia Tech Logo" />
       </Helmet>
 
+      <AboutJsonLd />
+
       <div className="max-w-5xl mx-auto mb-10 text-center">
         <h2 className={`text-4xl font-bold text-[${primaryColor}] mb-6`}>
           Kimik Biz?
         </h2>
         <p className="text-lg text-gray-400 leading-relaxed">
-          Texnologiya dünyasında yeni imkanlar yaradan{" "}
-          <strong className={`text-[${primaryColor}]`}>ImperiaTech</strong>{" "}
-          komandası, müasir həllərlə biznesləri gücləndirir. Yalnız kod yazmırıq
-          – biz gələcəyi dizayn edirik.
+          <strong className={`text-[${primaryColor}]`}>Imperia Tech</strong> —
+          Azərbaycanda <strong>veb sayt hazırlanması</strong>,{" "}
+          <strong>SEO xidməti</strong> və{" "}
+          <strong>rəqəmsal texnologiyalar</strong> sahəsində fəaliyyət göstərən
+          gənc və peşəkar komandadır. Məqsədimiz, startaplar, şirkətlər və fərdi
+          müştərilər üçün innovativ və texnoloji cəhətdən zəngin həllər təqdim
+          etməkdir.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-start">

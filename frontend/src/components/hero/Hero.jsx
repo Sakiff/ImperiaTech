@@ -5,8 +5,6 @@ import { useTheme } from "../../context/ThemeContext";
 
 export default function Hero() {
   const { isDarkMode } = useTheme();
-
-  // rəngləri dəyişkən kimi saxlayaq
   const brandColor = isDarkMode ? "#CAFF34" : "#1D6696";
 
   return (
@@ -32,16 +30,16 @@ export default function Hero() {
           </p>
         </div>
 
-        <motion.p
-          className="text-4xl md:text-5xl leading-normal"
+        <motion.h1
+          className="text-4xl md:text-5xl leading-normal font-bold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
         >
-          <strong style={{ color: brandColor }}>Imperia Tech</strong> Rəqəmsal
+          <strong style={{ color: brandColor }}>İmperia Tech</strong> ilə
           <br />
-          Gələcəyinizi Qururuq
-        </motion.p>
+          Peşəkar Veb Sayt Hazırlanması
+        </motion.h1>
 
         <motion.p
           className={`${isDarkMode ? "text-gray-300" : "text-gray-700"}`}
@@ -49,11 +47,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.4 }}
         >
-          İmperia Tech olaraq, hər müştərinin unikal ehtiyaclarını nəzərə alaraq
-          peşəkar veb həllər yaradırıq. Biznesinizi onlayn platformada
-          gücləndirmək, brendinizi tanıtmaq və müştərilərinizə daha yaxşı xidmət
-          göstərmək üçün innovativ və fərdiləşdirilmiş texnologiyalar təklif
-          edirik. Bizimlə gələcəyə addım atın!
+          İmperia Tech olaraq, yüksək keyfiyyətli və mobil uyğun veb sayt
+          hazırlanması xidmətləri təqdim edirik. Biznesiniz üçün sürətli,
+          təhlükəsiz və SEO optimizəli saytlar yaratmaqla brendinizin gücünü
+          artırırıq. Sayt sifarişi üçün indi bizimlə əlaqə saxlayın.
         </motion.p>
 
         <motion.div
@@ -64,12 +61,12 @@ export default function Hero() {
           <Link
             to="/contact"
             style={{ backgroundColor: brandColor }}
-            className={`relative overflow-hidden py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:opacity-90 hover:scale-105 active:scale-95`}
+            className="relative overflow-hidden py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:opacity-90 hover:scale-105 active:scale-95"
           >
             <span
               className={`relative z-10 ${!isDarkMode ? "text-white" : ""}`}
             >
-              İndi başla
+              Sayt Sifariş Et
             </span>
           </Link>
         </motion.div>
@@ -83,7 +80,7 @@ export default function Hero() {
       >
         <img
           src="/images/Hero.png"
-          alt="Imperia Tech şirkətinin loqosu"
+          alt="Veb sayt hazırlanması - Imperia Tech"
           className="w-full"
         />
       </motion.div>

@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import Spinner from "./components/spinner/Spinner";
 import { useTheme } from "./context/ThemeContext";
+import SEOJsonLd from "./components/seoJsonLd/SEOJsonLd";
 
 // Lazy yüklenen komponentlər
 const Root = lazy(() => import("./pages/Root"));
@@ -31,6 +32,8 @@ function App() {
           />
         )}
       </div>
+
+      <SEOJsonLd />
 
       <Suspense fallback={<Spinner />}>
         <Routes>

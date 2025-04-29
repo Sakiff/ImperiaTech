@@ -8,38 +8,39 @@ import {
   Database,
 } from "lucide-react";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet";
 import { useTheme } from "../../context/ThemeContext";
 
 const features = [
   {
     icon: Code,
     title: "Fərdi Veb Həllər",
-    desc: "Biznesiniz üçün unikal və optimallaşdırılmış veb saytlar hazırlayırıq.",
+    desc: "İstəyə uyğun hazırlanmış sayt yığılması xidməti ilə biznesinizin ehtiyaclarına cavab veririk.",
   },
   {
     icon: Globe,
-    title: "SEO və Marketinq",
-    desc: "Veb saytınızın Google-da üst sıralarda olması üçün SEO xidmətləri təqdim edirik.",
+    title: "SEO və Rəqəmsal Marketinq",
+    desc: "Google və digər axtarış sistemlərində görünmək üçün peşəkar SEO xidmətləri təqdim edirik.",
   },
   {
     icon: ShieldCheck,
-    title: "Təhlükəsizlik və Dəstək",
-    desc: "Məlumatlarınızın qorunması və texniki dəstək ilə xidmətinizdəyik.",
+    title: "Təhlükəsizlik və Texniki Dəstək",
+    desc: "Məlumatların qorunması və operativ texniki dəstək həmişə sizinlədir.",
   },
   {
     icon: Smartphone,
-    title: "Mobil Uyğunluq",
-    desc: "Saytınızın bütün cihazlarda mükəmməl işləməsini təmin edirik.",
+    title: "Mobil Uyğun Veb Saytlar",
+    desc: "Saytlar bütün cihazlarda rahat və sürətli işləyəcək şəkildə optimallaşdırılır.",
   },
   {
     icon: Palette,
-    title: "UX/UI Dizayn",
-    desc: "Modern və rahat istifadəçi təcrübəsi təqdim edən dizaynlar yaradırıq.",
+    title: "Modern UX/UI Dizayn",
+    desc: "İstifadəçi məmnuniyyətini artıran vizual və funksional dizayn həlləri təklif edirik.",
   },
   {
     icon: Database,
-    title: "Məlumat Bazası və Backend",
-    desc: "Etibarlı və güclü backend həlləri ilə məlumatlarınızı təhlükəsiz saxlayırıq.",
+    title: "Backend və Məlumat Bazası",
+    desc: "Saytınız üçün güclü və etibarlı backend strukturu qururuq.",
   },
 ];
 
@@ -56,7 +57,7 @@ export default function Features() {
           backgroundImage: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`,
         }}
       >
-        Sizə təqdim etdiklərimiz
+        Xidmət Sahələrimiz
       </h1>
 
       <p
@@ -64,8 +65,9 @@ export default function Features() {
           isDarkMode ? "text-gray-300" : "text-gray-700"
         }`}
       >
-        Bizim təqdim etdiyimiz xidmətlərlə, biznesinizin rəqabət üstünlüyünü
-        artırın və müştərilərinizə daha yaxşı təcrübə təqdim edin.
+        Imperia Tech komandası olaraq, veb saytların hazırlanması, SEO
+        optimizasiyası və rəqəmsal inkişaf sahəsində tam xidmət paketləri təqdim
+        edirik.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">

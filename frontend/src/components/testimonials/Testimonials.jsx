@@ -6,17 +6,17 @@ const testimonials = [
   {
     jobTitle: "Dijital Marketinq Meneceri",
     review:
-      "İmperia Tech-in xidmətləri bizim işimizi yeni bir səviyyəyə daşıdı. Peşəkar yanaşmaları və müasir texnologiyaları ilə gözəl nəticələr əldə etdik!",
+      "İmperia Tech-in texnoloji həlləri və sayt quruculuğu xidmətləri bizim işimizi yeni səviyyəyə daşıdı. Peşəkar yanaşmaları və müasir texnologiyaları ilə gözəl nəticələr əldə etdik!",
   },
   {
     jobTitle: "Proqram Təminatı Mütəxəssisi",
     review:
-      "Gözəl dizaynlar və sürətli nəticələr! Veb saytımın istifadəsi asanlaşdı və müştərilərimə daha yaxşı xidmət təqdim edə bildim.",
+      "Gözəl dizaynlar və sürətli nəticələr! Saytımın istifadəsi asanlaşdı və müştərilərimə daha effektiv şəkildə xidmət göstərməyə başladım. Axtarış sistemləri üçün optimallaşdırma da çox faydalı oldu.",
   },
   {
     jobTitle: "İT Həlləri üzrə Mütəxəssis",
     review:
-      "Bizim şirkət üçün ideal həllər təqdim etdilər. Təhlükəsizlik və mobil uyğunluq mövzusunda göstərdikləri diqqət çox təsir edicidir.",
+      "Şirkətimiz üçün funksional və mobil uyğun veb platforma hazırladılar. Texniki dəstək və təhlükəsizlik baxımından da yüksək səviyyədə xidmət göstərdilər.",
   },
 ];
 
@@ -30,18 +30,20 @@ export default function Testimonials() {
   return (
     <div className="my-16 px-5 sm:px-16">
       <h1
-        className="text-4xl sm:text-5xl font-bold text-center mb-5 text-transparent bg-clip-text"
+        className="text-4xl py-2 sm:text-5xl font-bold text-center mb-5 text-transparent bg-clip-text"
         style={{
           backgroundImage: `linear-gradient(to right, ${primaryColor}, ${primaryColor})`,
         }}
       >
-        Müştəri Rəyləri
+        Müştəri Rəyləri – Rəqəmsal Həllər və Sayt Layihələndirmə
       </h1>
 
       <p className={`text-center text-lg mb-8 ${subTextColor}`}>
-        Bizimlə işləyən müştərilərimizin fikirləri. İmperia Tech ilə çalışmaq,
-        işinizi bir addım irəli aparacaq!
+        Peşəkar veb səhifə hazırlanması, texniki dəstək və axtarış sistemləri
+        üçün təkmilləşdirmə xidmətləri ilə müştərilərimizin əldə etdiyi
+        nəticələr.
       </p>
+
       <div className="mx-auto space-y-8">
         {testimonials.map((testimonial, index) => (
           <motion.div

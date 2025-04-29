@@ -5,91 +5,87 @@ import { useTheme } from "../../context/ThemeContext";
 
 const faqData = [
   {
-    question: "Veb saytınızı nə qədər müddətə hazırlayırsınız?",
+    question: "Bir saytın hazırlanması ümumilikdə nə qədər vaxt aparır?",
     answer:
-      "Veb saytların hazırlanma müddəti, layihənin tələblərinə görə dəyişir. Adətən, 2-3 həftə ərzində tamamlanır.",
+      "Ən sadə saytlar 7-10 günə, daha kompleks layihələr isə 2-3 həftəyə hazırlanır. Müddət funksionallıq və dizayn detallardan asılı olaraq dəyişir.",
   },
   {
-    question: "SEO xidmətləriniz nələri əhatə edir?",
+    question: "SEO paketiniz saytım üçün hansı üstünlükləri verir?",
     answer:
-      "SEO xidmətlərimiz saytınızın Google və digər axtarış motorlarında daha yaxşı tapılmasını təmin edir. Bunun üçün saytınızdakı məzmunu, açar sözləri və səhifə quruluşunu optimallaşdırırıq. Həmçinin, saytınızın digər saytlarla əlaqələrini gücləndirərək axtarış nəticələrində daha yüksək mövqe əldə etməyinizə kömək edirik.",
+      "SEO xidmətimiz sayəsində saytınız axtarış motorlarında daha görünən olur. Hədəfli açar sözlər, texniki optimizasiya və kontent strategiyası ilə mövqeyiniz yüksəlir.",
   },
   {
-    question: "Mobil uyğunluq necə təmin olunur?",
+    question: "Mobil cihazlara uyğunluq necə həyata keçirilir?",
     answer:
-      "Biz saytlarınızı mobil cihazlarda da rahat və sürətli işləyəcək şəkildə optimallaşdırırıq. Hər cihazda mükəmməl görünüş və istifadəçi təcrübəsi təmin edirik.",
+      "Biz bütün saytlarımızı responsive texnologiyalarla qururuq. Bu sayədə saytınız smartfon, planşet və desktopda ideal şəkildə görünür.",
   },
   {
-    question: "Saytımın təhlükəsizliyi necə təmin olunur?",
+    question: "Təhlükəsizlik tədbirləri necə təşkil olunur?",
     answer:
-      "Saytınızın təhlükəsizliyi üçün SSL sertifikatı, məlumatların şifrələnməsi və digər təhlükəsizlik tədbirləri həyata keçirilir.",
+      "Saytlar SSL sertifikatı ilə təchiz olunur və verilənlər şifrələnir. Bundan əlavə, təhlükəsizlik auditləri və qoruyucu tədbirlər də tətbiq edirik.",
   },
   {
-    question: "Dizaynlarınız nə dərəcədə modern və istifadəçi dostudur?",
+    question: "Dizaynlarınız fərdi və istifadəçi dostudurmu?",
     answer:
-      "Biz modern dizayn tendensiyalarını izləyirik və istifadəçi təcrübəsini ən yüksək səviyyədə tutmaq üçün UX/UI prinsiplərinə uyğun işlər görürük.",
+      "Hər müştəriyə unikal və müasir dizayn təqdim olunur. İstifadəçi təcrübəsini maksimuma çatdırmaq üçün UI/UX prinsiplərinə uyğun işləyirik.",
   },
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(0); // İlk sual açıq gəlir
   const { isDarkMode } = useTheme();
   const primaryColor = isDarkMode ? "#D4FF00" : "#1D6696";
   const secondaryColor = isDarkMode ? "#32FF32" : "#1D6696";
-  const bgColor = isDarkMode ? "bg-[#0f0f0f]/50" : "bg-[#f0f0f0]";
 
+  const bgColor = isDarkMode ? "bg-[#0e0e0e]/50" : "bg-[#f9f9f9]";
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className={`${bgColor} backdrop-blur-md py-10`}>
-      <div className="my-16 px-5 sm:px-16">
-        <h1
-          className="text-4xl sm:text-5xl font-bold text-center mb-5 text-transparent bg-clip-text"
+    <div className={`${bgColor} backdrop-blur-lg py-14`}>
+      <div className="px-5 sm:px-16 mx-auto">
+        <h2
+          className="text-4xl sm:text-5xl font-extrabold text-center mb-5 text-transparent bg-clip-text"
           style={{
             backgroundImage: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`,
           }}
         >
-          Tez-tez Verilən Suallar
-        </h1>
+          Sizin Suallarınıza Cavab Veririk
+        </h2>
 
         <p
           className={`text-center text-lg mb-10 ${
             isDarkMode ? "text-gray-300" : "text-gray-700"
           }`}
         >
-          Sizdən tez-tez aldığımız suallar və cavablar. Bizə daha çox sualınız
-          varsa, bizə yazın!
+          Sayt və SEO ilə bağlı ən çox verilən suallara cavabları burada tapa
+          bilərsiniz. Əlavə sualınız var? Bizimlə əlaqə saxlayın!
         </p>
 
         <div className="space-y-4">
           {faqData.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 200,
-                delay: index * 0.1,
-              }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`relative rounded-xl p-6 transition-all duration-300 ${
-                openIndex === index ? `border-2` : `border border-transparent`
-              } ${isDarkMode ? "bg-[#1E1E1E]" : "bg-white"} ${
-                openIndex === index ? `border-[${primaryColor}]` : ""
+              className={`rounded-xl p-6 shadow-md transition-all duration-300 cursor-pointer ${
+                isDarkMode ? "bg-[#1A1A1A]" : "bg-white"
+              } border ${
+                openIndex === index
+                  ? "border-[1.5px]"
+                  : "border border-transparent"
               }`}
               style={{
                 borderColor: openIndex === index ? primaryColor : "transparent",
               }}
+              onClick={() => toggleAccordion(index)}
             >
-              <div
-                className="flex justify-between items-center cursor-pointer"
-                onClick={() => toggleAccordion(index)}
-              >
+              <div className="flex justify-between items-center">
                 <h3
-                  className={`text-2xl font-semibold ${
+                  className={`text-xl sm:text-2xl font-medium ${
                     isDarkMode ? "text-white" : "text-black"
                   }`}
                 >
@@ -102,12 +98,13 @@ export default function FAQ() {
                   }`}
                 />
               </div>
+
               {openIndex === index && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
-                  transition={{ duration: 0.5 }}
-                  className={`mt-4 overflow-hidden ${
+                  transition={{ duration: 0.4 }}
+                  className={`mt-3 text-base ${
                     isDarkMode ? "text-gray-300" : "text-gray-700"
                   }`}
                 >
