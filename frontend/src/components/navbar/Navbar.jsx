@@ -56,6 +56,7 @@ export default function Navbar() {
         {[
           { to: "/", label: "Ana səhifə" },
           { to: "about", label: "Haqqımızda" },
+          { to: "portfolio", label: "Portfolio" },
           { to: "services", label: "Xidmətlərimiz" },
           { to: "contact", label: "Əlaqə" },
         ].map((item, i) => (
@@ -133,6 +134,7 @@ export default function Navbar() {
               {[
                 { to: "/", label: "Ana səhifə" },
                 { to: "about", label: "Haqqımızda" },
+                { to: "portfolio", label: "Portfolio" },
                 { to: "services", label: "Xidmətlərimiz" },
                 { to: "contact", label: "Əlaqə" },
               ].map((item, index) => (

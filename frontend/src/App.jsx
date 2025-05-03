@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import Spinner from "./components/spinner/Spinner";
 import { useTheme } from "./context/ThemeContext";
 import SEOJsonLd from "./components/seoJsonLd/SEOJsonLd";
+import Portfolio from "./pages/portfolio/Portfolio";
 
 // Lazy yüklenen komponentlər
 const Root = lazy(() => import("./pages/Root"));
@@ -42,6 +43,7 @@ function App() {
             <Route path="about" element={<AboutSection />} />
             <Route path="services" element={<Services />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="portfolio" element={<Portfolio />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
