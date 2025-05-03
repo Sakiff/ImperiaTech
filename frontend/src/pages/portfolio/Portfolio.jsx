@@ -9,14 +9,14 @@ const projects = [
     link: "https://lineconstruction-001-site1.ntempurl.com/",
   },
   {
-    title: "Layihə 2",
-    image: "https://via.placeholder.com/400x250?text=Project+2",
-    link: "https://example2.com",
+    title: "Kas Aluminyum",
+    image: "/images/layihe2.PNG",
+    link: "https://www.kasalm.com/",
   },
   {
-    title: "Layihə 3",
-    image: "https://via.placeholder.com/400x250?text=Project+3",
-    link: "https://example3.com",
+    title: "BizPro Media",
+    image: "/images/layihe3.PNG",
+    link: "https://bizpromedia.netlify.app/",
   },
 ];
 
