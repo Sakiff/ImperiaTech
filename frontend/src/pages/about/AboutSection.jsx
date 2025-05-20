@@ -11,12 +11,12 @@ const teamMembers = [
     image: "/images/davud.png",
     bio: "Mən Davud Qədirov, texnologiya və təhsil sahəsində fəaliyyət göstərən gənc sahibkaram. Kibertəhlükəsizlik üzrə təhsil alıram və Imperia Tech layihəsi ilə bölgələrdəki gəncləri qlobal imkanlarla birləşdirirəm. Süni intellekt, startaplar və rəqəmsal inkişaf əsas maraq sahəmlərdəndir. Daim yenilik axtarışındayam və gələcəyi birlikdə qurmağa inanıram.",
   },
-  {
-    name: "Mirze",
-    role: "Frontend Developer",
-    image: "/images/mirze.jpeg",
-    bio: "Mən informasiya texnologiyaları sahəsində ixtisaslaşmış, frontend inkişafı üzrə çalışan bir proqramçıyam. İstifadəçi təcrübəsini ön planda tutaraq veb interfeyslərin hazırlanması və optimallaşdırılması ilə məşğulam. Hal-hazırda Imperia Tech komandasında frontend developer kimi fəaliyyət göstərirəm və müxtəlif veb layihələrin reallaşdırılmasında iştirak edirəm. Məqsədim müasir texnoloji tələblərə cavab verən funksional və estetik həllər yaratmaqdır.",
-  },
+  // {
+  //   name: "Mirze",
+  //   role: "Frontend Developer",
+  //   image: "/images/mirze.jpeg",
+  //   bio: "Mən informasiya texnologiyaları sahəsində ixtisaslaşmış, frontend inkişafı üzrə çalışan bir proqramçıyam. İstifadəçi təcrübəsini ön planda tutaraq veb interfeyslərin hazırlanması və optimallaşdırılması ilə məşğulam. Hal-hazırda Imperia Tech komandasında frontend developer kimi fəaliyyət göstərirəm və müxtəlif veb layihələrin reallaşdırılmasında iştirak edirəm. Məqsədim müasir texnoloji tələblərə cavab verən funksional və estetik həllər yaratmaqdır.",
+  // },
   {
     name: "Hüseyn",
     role: "MERN Stack Developer",
