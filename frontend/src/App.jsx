@@ -5,7 +5,6 @@ import { Toaster } from "react-hot-toast";
 import Spinner from "./components/spinner/Spinner";
 import { useTheme } from "./context/ThemeContext";
 import SEOJsonLd from "./components/seoJsonLd/SEOJsonLd";
-import Portfolio from "./pages/portfolio/Portfolio";
 
 // Lazy yüklenen komponentlər
 const Root = lazy(() => import("./pages/Root"));
@@ -14,6 +13,7 @@ const NotFound = lazy(() => import("./pages/notfound/NotFound"));
 const AboutSection = lazy(() => import("./pages/about/AboutSection"));
 const Services = lazy(() => import("./pages/services/Services"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
+const Portfolio = lazy(() => import("./pages/portfolio/Portfolio"));
 
 function App() {
   const { isDarkMode } = useTheme();
