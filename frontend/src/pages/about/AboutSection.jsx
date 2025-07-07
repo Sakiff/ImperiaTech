@@ -14,14 +14,8 @@ const teamMembers = [
   {
     name: "Mirze",
     role: "Frontend Developer",
-    image: "/images/mirze.jpeg",
+    image: "/images/Mirze.jpg",
     bio: "Mən informasiya texnologiyaları sahəsində ixtisaslaşmış, frontend inkişafı üzrə çalışan bir proqramçıyam. İstifadəçi təcrübəsini ön planda tutaraq veb interfeyslərin hazırlanması və optimallaşdırılması ilə məşğulam. Hal-hazırda Imperia Tech komandasında frontend developer kimi fəaliyyət göstərirəm və müxtəlif veb layihələrin reallaşdırılmasında iştirak edirəm. Məqsədim müasir texnoloji tələblərə cavab verən funksional və estetik həllər yaratmaqdır.",
-  },
-  {
-    name: "Hüseyn",
-    role: "MERN Stack Developer",
-    image: "/images/SEFERELIYEV.jpeg",
-    bio: "Mən MERN stack üzrə ixtisaslaşmış web developerəm. HTML, CSS və JavaScript texnologiyalarında güclü baza biliklərim var. Frontend tərəfdə React və Redux ilə interaktiv və sürətli interfeyslər hazırlayıram. Backend tərəfdə isə Node.js və Express.js istifadə edərək funksional serverlər qururam. MongoDB ilə məlumat bazalarını effektiv şəkildə idarə edirəm. Layihələrimdə istifadəçi təcrübəsinə və performansa xüsusi önəm verirəm. Komanda şəklində işləmə bacarığına sahibəm və Agile metodologiyasına uyğun çalışıram. Yeni texnologiyaları öyrənməyə marağım böyükdür və daim özümü inkişaf etdirməyə çalışıram. Real dünya problemlərinə texnoloji həllər gətirmək mənim üçün motivasiya mənbəyidir. Məqsədim, keyfiyyətli və effektiv veb tətbiqləri hazırlayaraq istifadəçilərə dəyər yaratmaqdır.",
   },
   {
     name: "Sakif",
@@ -29,6 +23,13 @@ const teamMembers = [
     image: "/images/sakif.jpeg",
     bio: "Mən veb inkişafı sahəsində fəaliyyət göstərən, daim öz üzərində çalışan bir gəncəm. Frontend əsas istiqamətim olsa da, backend texnologiyaları ilə də maraqlanıram. HTML, CSS, JavaScript, Tailwind və React ilə işləməyi sevirəm. Eyni zamanda Node.js və Express.js ilə sadə server tərəfli tətbiqlər hazırlayıram. Layihələrimdə funksionallıqla yanaşı, estetik görünüşə də xüsusi önəm verirəm. Komanda ilə işləmək və yeni biliklər əldə etmək mənim üçün motivasiya qaynağıdır. Məqsədim daim daha keyfiyyətli və istifadəçi yönümlü məhsullar yaratmaqdır.",
   },
+  {
+    name: "Hüseyn",
+    role: "MERN Stack Developer",
+    image: "/images/SEFERELIYEV.jpeg",
+    bio: "Mən MERN stack üzrə ixtisaslaşmış web developerəm. HTML, CSS və JavaScript texnologiyalarında güclü baza biliklərim var. Frontend tərəfdə React və Redux ilə interaktiv və sürətli interfeyslər hazırlayıram. Backend tərəfdə isə Node.js və Express.js istifadə edərək funksional serverlər qururam. MongoDB ilə məlumat bazalarını effektiv şəkildə idarə edirəm. Layihələrimdə istifadəçi təcrübəsinə və performansa xüsusi önəm verirəm. Komanda şəklində işləmə bacarığına sahibəm və Agile metodologiyasına uyğun çalışıram. Yeni texnologiyaları öyrənməyə marağım böyükdür və daim özümü inkişaf etdirməyə çalışıram. Real dünya problemlərinə texnoloji həllər gətirmək mənim üçün motivasiya mənbəyidir. Məqsədim, keyfiyyətli və effektiv veb tətbiqləri hazırlayaraq istifadəçilərə dəyər yaratmaqdır.",
+  },
+
   {
     name: "Hüseyin",
     role: "Backend Developer",
