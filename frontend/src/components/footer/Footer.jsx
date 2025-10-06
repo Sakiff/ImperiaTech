@@ -39,7 +39,9 @@ export default function Footer() {
           viewport={{ once: true }}
         >
           <img
-            src="/images/Logo.jpg"
+            src={
+              isDarkMode ? "/images/Logo-dark-theme.png" : "/images/Logo.jpg"
+            }
             alt="Logo"
             className="w-12 h-12 rounded-xl"
           />

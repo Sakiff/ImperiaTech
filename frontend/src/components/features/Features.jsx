@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Code,
   Globe,
@@ -8,7 +7,6 @@ import {
   Database,
 } from "lucide-react";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet";
 import { useTheme } from "../../context/ThemeContext";
 
 const features = [

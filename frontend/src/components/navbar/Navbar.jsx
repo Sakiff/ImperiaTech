@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Sun, Moon } from "lucide-react";
 import styles from "./Navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
@@ -22,7 +22,9 @@ export default function Navbar() {
       <Link to={"/"} onClick={closeMenu}>
         <div className="flex justify-center items-center gap-4">
           <img
-            src="/images/Logo.jpg"
+            src={
+              isDarkMode ? "/images/Logo-dark-theme.png" : "/images/Logo.jpg"
+            }
             alt="Logo"
             className="w-15 h-15 rounded-2xl"
           />

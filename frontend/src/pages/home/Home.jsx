@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+// React import not required with new JSX transform
+import { useEffect } from "react";
 import Hero from "../../components/hero/Hero";
 import Features from "../../components/features/Features";
 import FAQ from "../../components/faq/FAQ";

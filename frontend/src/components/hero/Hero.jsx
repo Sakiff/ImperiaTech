@@ -1,4 +1,4 @@
-import React from "react";
+// React import not needed with new JSX transform
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
@@ -26,7 +26,7 @@ export default function Hero() {
             className="w-5 h-5"
           />
           <p className={`${isDarkMode ? "text-gray-300" : "text-gray-700"}`}>
-            "İnnovasiya və Texnologiyanın Kəsişdiyi Nöqtə!"
+            &quot;İnnovasiya və Texnologiyanın Kəsişdiyi Nöqtə!&quot;
           </p>
         </div>
 

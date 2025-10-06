@@ -22,7 +22,6 @@ const projects = [
 
 export default function Portfolio() {
   const { isDarkMode } = useTheme();
-  const bgColor = isDarkMode ? "#0D0D0D" : "#F9FAFB";
   const primaryColor = isDarkMode ? "#CAFF34" : "#1D6696";
   const cardBg = isDarkMode ? "#1E1E1E" : "white";
   const textColor = isDarkMode ? "text-white" : "text-gray-800";

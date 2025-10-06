@@ -1,4 +1,4 @@
-import React from "react";
+// React import not needed with new JSX transform
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 
@@ -93,7 +93,7 @@ export default function Testimonials() {
               transition={{ delay: 0.3 }}
               className={`mt-4 ${subTextColor} relative z-10`}
             >
-              "{testimonial.review}"
+              &quot;{testimonial.review}&quot;
             </motion.p>
           </motion.div>
         ))}

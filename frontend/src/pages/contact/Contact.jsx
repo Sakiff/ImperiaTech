@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+// React import not required with new JSX transform
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { toast } from "react-hot-toast";
