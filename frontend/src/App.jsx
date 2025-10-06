@@ -30,10 +30,10 @@ function App() {
 
       <div className="absolute top-0 left-0 z-[-1]">
         {isDarkMode ? (
-          <img src="./images/Group.png" alt="Background" />
+          <img src="/images/Group.png" alt="Background" />
         ) : (
           <img
-            src="./images/light-group.png"
+            src="/images/light-group.png"
             alt="Background"
             className="w-150 h-100"
           />

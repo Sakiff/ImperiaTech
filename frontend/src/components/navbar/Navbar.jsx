@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sun, Moon, Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, NavLink } from "react-router-dom";
@@ -13,6 +13,19 @@ export default function Navbar() {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
+
+  // lock body scroll when mobile menu is open so page behind doesn't scroll
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   const menuItems = [
     { key: "home", to: "/", label: "Ana səhifə" },
@@ -58,7 +71,7 @@ export default function Navbar() {
         <div className="flex justify-center items-center gap-4">
           <img
             src={
-              isDarkMode ? "./images/Logo-dark-theme.png" : "./images/Logo.jpg"
+              isDarkMode ? "/images/Logo-dark-theme.png" : "/images/Logo.jpg"
             }
             alt="Logo"
             className="w-15 h-15 rounded-2xl"
@@ -235,8 +248,8 @@ export default function Navbar() {
                 <img
                   src={
                     isDarkMode
-                      ? "./images/Logo-dark-theme.png"
-                      : "./images/Logo.jpg"
+                      ? "/images/Logo-dark-theme.png"
+                      : "/images/Logo.jpg"
                   }
                   alt="Logo"
                   className="w-15 h-15 rounded-2xl"
