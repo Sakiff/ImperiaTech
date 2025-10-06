@@ -1,27 +1,167 @@
+/* Navbar.module.css */
 .navbar {
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 25px;
   transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid rgba(128, 128, 128, 0.1);
 }
 
 .dark {
-  background-color: #1c1c1c;
+  background-color: rgba(28, 28, 28, 0.9);
   color: white;
 }
 
 .light {
-  background-color: #fafafa;
+  background-color: rgba(250, 250, 250, 0.9);
   color: black;
 }
 
 .navLink {
-  transition: background-color 0.4s ease, color 0.4s ease;
-  border-radius: 15px;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  position: relative;
+  /* allow dropdowns to overflow the nav link container */
+  overflow: visible;
+}
+
+.navLink::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #caff34, #1d6696);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navLink:hover::before {
+  width: 70%;
 }
 
 .light .navLink:hover {
-  background-color: #e5e5e5;
+  background-color: rgba(29, 102, 150, 0.05);
 }
 
-.navLink:hover {
-  background-color: #262626;
+.dark .navLink:hover {
+  background-color: rgba(202, 255, 52, 0.05);
+}
+
+/* Dropdown menu styles */
+.dropdownToggle {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 30px;
+  padding: 12px;
+  /* make sure dropdown floats above other elements */
+  z-index: 99999;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  margin-top: 8px;
+}
+
+.light .dropdownMenu {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dark .dropdownMenu {
+  background-color: rgba(40, 40, 40, 0.95);
+}
+
+.dropdownItem {
+  padding: 10px 14px;
+  border-radius: 10px;
+  display: block;
+  transition: all 0.2s ease;
+  margin-bottom: 4px;
+}
+
+.light .dropdownItem:hover {
+  background-color: rgba(29, 102, 150, 0.1);
+  transform: translateX(5px);
+}
+
+.dark .dropdownItem:hover {
+  background-color: rgba(202, 255, 52, 0.1);
+  transform: translateX(5px);
+}
+
+/* ----------- MOBILE MENU ------------- */
+.mobileNavItem {
+  width: 100%;
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: left;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.mobileNavItem + .mobileNavItem {
+  margin-top: 8px;
+}
+
+.mobileNavItem button,
+.mobileNavItem a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  font-size: 1.125rem;
+  font-weight: 500;
+  gap: 10px;
+  color: inherit;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mobileNavItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.light .mobileNavItem:hover {
+  background-color: rgba(29, 102, 150, 0.05);
+}
+
+.dark .mobileNavItem:hover {
+  background-color: rgba(202, 255, 52, 0.05);
+}
+
+.mobileDropdownList {
+  margin-top: 12px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mobileDropdownList a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.light .mobileDropdownList a:hover {
+  background-color: rgba(29, 102, 150, 0.1);
+  transform: translateX(5px);
+}
+
+.dark .mobileDropdownList a:hover {
+  background-color: rgba(202, 255, 52, 0.1);
+  transform: translateX(5px);
 }

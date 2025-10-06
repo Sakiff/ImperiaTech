@@ -14,6 +14,12 @@ const AboutSection = lazy(() => import("./pages/about/AboutSection"));
 const Services = lazy(() => import("./pages/services/Services"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const Portfolio = lazy(() => import("./pages/portfolio/Portfolio"));
+const Academy = lazy(() => import("./pages/academy/Academy"));
+const Technology = lazy(() => import("./pages/services/Technology"));
+const Corporate = lazy(() => import("./pages/services/Corporate"));
+const Industry = lazy(() => import("./pages/services/Industry"));
+const Career = lazy(() => import("./pages/career/Career"));
+const Blog = lazy(() => import("./pages/blog/Blog"));
 
 function App() {
   const { isDarkMode } = useTheme();
@@ -41,7 +47,13 @@ function App() {
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
             <Route path="about" element={<AboutSection />} />
+            <Route path="academy" element={<Academy />} />
+            <Route path="services/technology" element={<Technology />} />
+            <Route path="services/corporate" element={<Corporate />} />
+            <Route path="services/industry" element={<Industry />} />
             <Route path="services" element={<Services />} />
+            <Route path="career" element={<Career />} />
+            <Route path="blog" element={<Blog />} />
             <Route path="contact" element={<Contact />} />
             <Route path="portfolio" element={<Portfolio />} />
             <Route path="*" element={<NotFound />} />
