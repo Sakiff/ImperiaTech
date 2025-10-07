@@ -18,9 +18,16 @@ import { useTheme } from "../../context/ThemeContext";
 export default function Technology() {
   const { isDarkMode } = useTheme();
   const [activeService, setActiveService] = useState(0);
-  const [autoPlay, setAutoPlay] = useState(true);
+  const [autoPlay, setAutoPlay] = useState(false);
   const sectionRef = useRef(null);
+  const serviceRefs = useRef([]);
   const navigate = useNavigate();
+  const userInteractedRef = useRef(false);
+
+  const toggleAutoPlay = () => {
+    userInteractedRef.current = true;
+    setAutoPlay((prev) => !prev);
+  };
 
   const services = [
     {
@@ -121,6 +128,33 @@ export default function Technology() {
 
     return () => clearInterval(interval);
   }, [autoPlay, services.length]);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      if (!userInteractedRef.current) setAutoPlay(true);
+    }, 2000);
+    return () => clearTimeout(t);
+  }, []);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+
+    const el = serviceRefs.current[activeService];
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    if (!isVisible) {
+      try {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch {
+        window.scrollTo({
+          top: window.scrollY + rect.top - window.innerHeight / 2,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [activeService, autoPlay]);
 
   const handleFreeConsultation = () => {
     window.location.href = "tel:055-755-77-33";
@@ -233,7 +267,7 @@ export default function Technology() {
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-bold text-lg">Xidmətləri Kəşf Edin</h3>
                 <button
-                  onClick={() => setAutoPlay(!autoPlay)}
+                  onClick={toggleAutoPlay}
                   className={`p-2 rounded-lg transition-colors ${
                     isDarkMode ? "hover:bg-gray-700" : "hover:bg-gray-100"
                   }`}
@@ -292,8 +326,10 @@ export default function Technology() {
                     }`}
                     onClick={() => {
                       setActiveService(index);
+                      userInteractedRef.current = true;
                       setAutoPlay(false);
                     }}
+                    ref={(el) => (serviceRefs.current[index] = el)}
                   >
                     <div
                       className={`inline-flex items-center justify-center w-16 h-16 rounded-xl mb-4 ${
@@ -348,7 +384,7 @@ export default function Technology() {
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="font-bold text-lg">Xidmətləri Kəşf Edin</h3>
                     <button
-                      onClick={() => setAutoPlay(!autoPlay)}
+                      onClick={toggleAutoPlay}
                       className={`p-2 rounded-lg transition-colors ${
                         isDarkMode ? "hover:bg-gray-700" : "hover:bg-gray-100"
                       }`}
