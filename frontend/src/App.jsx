@@ -5,13 +5,13 @@ import { Toaster } from "react-hot-toast";
 import Spinner from "./components/spinner/Spinner";
 import { useTheme } from "./context/ThemeContext";
 import SEOJsonLd from "./components/seoJsonLd/SEOJsonLd";
+import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 // Lazy yüklenen komponentlər
 const Root = lazy(() => import("./pages/Root"));
 const Home = lazy(() => import("./pages/home/Home"));
 const NotFound = lazy(() => import("./pages/notfound/NotFound"));
 const AboutSection = lazy(() => import("./pages/about/AboutSection"));
-const Services = lazy(() => import("./pages/services/Services"));
 const Contact = lazy(() => import("./pages/contact/Contact"));
 const Portfolio = lazy(() => import("./pages/portfolio/Portfolio"));
 const Academy = lazy(() => import("./pages/academy/Academy"));
@@ -43,6 +43,7 @@ function App() {
       <SEOJsonLd />
 
       <Suspense fallback={<Spinner />}>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Root />}>
             <Route index element={<Home />} />
@@ -51,7 +52,6 @@ function App() {
             <Route path="services/technology" element={<Technology />} />
             <Route path="services/corporate" element={<Corporate />} />
             <Route path="services/industry" element={<Industry />} />
-            <Route path="services" element={<Services />} />
             <Route path="career" element={<Career />} />
             <Route path="blog" element={<Blog />} />
             <Route path="contact" element={<Contact />} />

@@ -61,7 +61,6 @@ export default function Footer() {
           {[
             { label: "Ana səhifə", path: "/" },
             { label: "Haqqımızda", path: "/about" },
-            { label: "Xidmətlərimiz", path: "/services" },
             { label: "Əlaqə", path: "/contact" },
           ].map((item, index) => (
             <Link

@@ -1,4 +1,3 @@
-// React import not required with new JSX transform
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
