@@ -11,8 +11,18 @@ export default function Navbar() {
   const [mobileOpenDropdowns, setMobileOpenDropdowns] = useState({});
   const { isDarkMode, toggleTheme } = useTheme();
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => {
+    const next = !menuOpen;
+    setMenuOpen(next);
+    // when opening the mobile menu, ensure no dropdowns are left open
+    if (next) setMobileOpenDropdowns({});
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    // clear any open mobile dropdowns when closing/navigating
+    setMobileOpenDropdowns({});
+  };
 
   // lock body scroll when mobile menu is open so page behind doesn't scroll
   useEffect(() => {
@@ -298,12 +308,13 @@ export default function Navbar() {
                     <>
                       <button
                         className={`${styles.mobileDropdownHeader}`}
-                        onClick={() =>
-                          setMobileOpenDropdowns((prev) => ({
-                            ...prev,
-                            [item.key]: !prev[item.key],
-                          }))
-                        }
+                        onClick={() => {
+                          // toggle this dropdown and close any others
+                          setMobileOpenDropdowns((prev) => {
+                            const isOpen = !!prev[item.key];
+                            return isOpen ? {} : { [item.key]: true };
+                          });
+                        }}
                       >
                         <span>{item.label}</span>
                         <motion.div
