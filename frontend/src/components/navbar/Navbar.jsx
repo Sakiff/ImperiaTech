@@ -59,14 +59,6 @@ export default function Navbar() {
       ],
     },
     { key: "portfolio", to: "portfolio", label: "Portfolio" },
-    // {
-    //   key: "solutions",
-    //   label: "Həllər",
-    //   children: [
-    //     { to: "contact", label: "Nümunə göndərin" },
-    //     { to: "contact", label: "Danışaq" },
-    //   ],
-    // },
   ];
 
   return (
