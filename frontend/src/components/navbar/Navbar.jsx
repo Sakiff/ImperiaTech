@@ -44,7 +44,6 @@ export default function Navbar() {
       label: "Xidmətlər",
       children: [
         { to: "services/technology", label: "Texnoloji" },
-        { to: "academy", label: "Akademiya" },
         { to: "services/corporate", label: "Korporativ xidmətlər" },
         { to: "services/industry", label: "Sənaye" },
       ],
@@ -60,15 +59,14 @@ export default function Navbar() {
       ],
     },
     { key: "portfolio", to: "portfolio", label: "Portfolio" },
-    {
-      key: "solutions",
-      label: "Həllər",
-      children: [
-        { to: "contact", label: "Nümunə göndərin" },
-        { to: "contact", label: "Danışaq" },
-      ],
-    },
-    { key: "edu", label: "Edu", children: [{ to: "academy", label: "Edu" }] },
+    // {
+    //   key: "solutions",
+    //   label: "Həllər",
+    //   children: [
+    //     { to: "contact", label: "Nümunə göndərin" },
+    //     { to: "contact", label: "Danışaq" },
+    //   ],
+    // },
   ];
 
   return (

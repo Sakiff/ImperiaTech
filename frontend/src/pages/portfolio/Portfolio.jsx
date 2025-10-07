@@ -6,6 +6,16 @@ import { useState } from "react";
 
 const projects = [
   {
+    title: "Sum Tekstil",
+    image: "/images/sumtekstil.png",
+    link: "https://sumtekstil.az/",
+    category: "Korporativ Vebsayt",
+    description:
+      "SumTekstil - Bakıda iş geyimləri və təhlükəsizlik avadanlıqlarının istehsalı. Tikinti şirkətləri, restoranlar, sənaye müəssisələri üçün peşəkar iş paltarları.",
+    technologies: ["React", "Tailwind", "MongoDB", "Node.js", "Express.js"],
+    isTemplate: false,
+  },
+  {
     title: "Line Construction",
     image: "/images/layihe1.PNG",
     link: "https://lineconstruction-001-site1.ntempurl.com/",
@@ -32,16 +42,6 @@ const projects = [
     technologies: ["HTML", "CSS", "JavaScript"],
     isTemplate: true,
   },
-  {
-    title: "Sum Tekstil",
-    image: "/images/sumtekstil.png",
-    link: "https://sumtekstil.az/",
-    category: "Korporativ Vebsayt",
-    description:
-      "SumTekstil - Bakıda iş geyimləri və təhlükəsizlik avadanlıqlarının istehsalı. Tikinti şirkətləri, restoranlar, sənaye müəssisələri üçün peşəkar iş paltarları.",
-    technologies: ["React", "Tailwind", "MongoDB", "Node.js", "Express.js"],
-    isTemplate: false,
-  },
 ];
 
 export default function Portfolio() {
@@ -49,7 +49,6 @@ export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState("Hamısı");
 
   const primaryColor = isDarkMode ? "#CAFF34" : "#1D6696";
-  const bgColor = isDarkMode ? "#1C1C1C" : "#ffffff";
   const cardBg = isDarkMode ? "#1E1E1E" : "#ffffff";
   const textColor = isDarkMode ? "text-white" : "text-gray-800";
   const mutedTextColor = isDarkMode ? "text-gray-400" : "text-gray-600";
@@ -61,7 +60,6 @@ export default function Portfolio() {
     "Media Agentliyi",
   ];
 
-  // Filter projects based on active category
   const filteredProjects =
     activeCategory === "Hamısı"
       ? projects

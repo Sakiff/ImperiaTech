@@ -156,6 +156,29 @@ export default function Technology() {
     }
   }, [activeService, autoPlay]);
 
+  // Select a service (used by pagination controls) and ensure it is scrolled into view
+  const selectService = (index) => {
+    userInteractedRef.current = true;
+    setActiveService(index);
+    setAutoPlay(false);
+
+    const el = serviceRefs.current[index];
+    if (!el) return;
+
+    const rect = el.getBoundingClientRect();
+    const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    if (!isVisible) {
+      try {
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch {
+        window.scrollTo({
+          top: window.scrollY + rect.top - window.innerHeight / 2,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
   const handleFreeConsultation = () => {
     window.location.href = "tel:055-755-77-33";
   };
@@ -280,10 +303,7 @@ export default function Technology() {
                 {services.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => {
-                      setActiveService(index);
-                      setAutoPlay(false);
-                    }}
+                    onClick={() => selectService(index)}
                     className={`flex-1 h-1 rounded-full transition-all ${
                       activeService === index
                         ? isDarkMode
@@ -397,10 +417,7 @@ export default function Technology() {
                     {services.map((_, index) => (
                       <button
                         key={index}
-                        onClick={() => {
-                          setActiveService(index);
-                          setAutoPlay(false);
-                        }}
+                        onClick={() => selectService(index)}
                         className={`flex-1 h-1 rounded-full transition-all ${
                           activeService === index
                             ? isDarkMode

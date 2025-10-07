@@ -98,7 +98,7 @@ export default function Corporate() {
   const corporateStats = [
     {
       icon: <Award size={32} />,
-      number: "25+",
+      number: "5+",
       label: "İllik Təcrübə",
       description: "Korporativ konsaltinq sahəsində",
     },
@@ -110,7 +110,7 @@ export default function Corporate() {
     },
     {
       icon: <Building size={32} />,
-      number: "150+",
+      number: "10+",
       label: "Şirkət",
       description: "Bizimlə əməkdaşlıq edən",
     },
