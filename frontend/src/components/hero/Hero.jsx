@@ -1,4 +1,3 @@
-// React import not needed with new JSX transform
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
@@ -79,7 +78,7 @@ export default function Hero() {
         transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
       >
         <img
-          src="/images/Hero.png"
+          src={isDarkMode ? "/images/Hero.png" : "/images/Hero-dark.png"}
           alt="Veb sayt hazırlanması - Imperia Tech"
           className="w-full"
         />
