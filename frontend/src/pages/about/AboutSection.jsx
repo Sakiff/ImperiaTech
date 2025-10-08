@@ -7,7 +7,7 @@ import AboutJsonLd from "../../components/seoJsonLd/AboutJsonLd";
 const teamMembers = [
   {
     name: "Davud Qədirov",
-    role: "CEO",
+    role: "Co-Founder",
     image: "/images/davud.png",
     bio: "Mən Davud Qədirov, texnologiya və təhsil sahəsində fəaliyyət göstərən gənc sahibkaram. Kibertəhlükəsizlik üzrə təhsil alıram və Imperia Tech layihəsi ilə bölgələrdəki gəncləri qlobal imkanlarla birləşdirirəm. Süni intellekt, startaplar və rəqəmsal inkişaf əsas maraq sahəmlərdəndir. Daim yenilik axtarışındayam və gələcəyi birlikdə qurmağa inanıram.",
   },
