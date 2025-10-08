@@ -73,7 +73,7 @@ export default function About() {
         <title>Haqqımızda | Imperia Tech</title>
         <meta
           name="description"
-          content="İmperia Tech komandası haqqında məlumat. Komandamız texnologiya, veb inkişafı və innovasiyaya yönəlmiş mütəxəssislərdən ibarətdir."
+          content="Imperia Tech komandası – innovativ yanaşma, texnoloji bilik və yaradıcılığın birləşdiyi yer. Biz kimik və necə işləyirik?"
         />
       </Helmet>
 

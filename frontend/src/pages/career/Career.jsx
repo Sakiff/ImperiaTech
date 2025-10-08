@@ -148,7 +148,7 @@ export default function Career() {
         <title>Karyera | Imperia Tech</title>
         <meta
           name="description"
-          content="Imperia Tech-də karyera imkanları. Komandamıza qoşulun və texnologiya ilə gələcəyi birlikdə quraq. Professional inkişaf, rəqabətli mükafatlandırma."
+          content="Imperia Tech-də karyera qurmaq istəyirsiniz? Komandamıza qoşulun və texnologiyanın gələcəyini bizimlə formalaşdırın."
         />
       </Helmet>
 

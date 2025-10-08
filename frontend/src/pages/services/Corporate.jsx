@@ -15,6 +15,7 @@ import {
   ThumbsUp,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
+import { Helmet } from "react-helmet";
 
 export default function Corporate() {
   const { isDarkMode } = useTheme();
@@ -149,6 +150,14 @@ export default function Corporate() {
 
   return (
     <div className={`min-h-screen transition-colors duration-300 `}>
+      <Helmet>
+        <title>Korporativ | Imperia Tech</title>
+        <meta
+          name="description"
+          content="Korporativ şirkətlər üçün rəqəmsal məsləhət və strategiya xidmətləri. Imperia Tech ilə biznesinizi növbəti səviyyəyə daşıyın."
+        />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

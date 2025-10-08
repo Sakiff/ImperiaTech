@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
 import { Construction, Factory, Cog, Zap, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Industry = () => {
   const { isDarkMode } = useTheme();
@@ -89,6 +90,14 @@ const Industry = () => {
     <div
       className={`min-h-screen transition-colors duration-300 overflow-x-hidden `}
     >
+      <Helmet>
+        <title>Sənaye | Imperia Tech</title>
+        <meta
+          name="description"
+          content="Sənayelər üçün fərdiləşdirilmiş texnoloji və dizayn həlləri. Imperia Tech – biznesinizi daha səmərəli edən həllər təqdim edir."
+        />
+      </Helmet>
+
       {/* Hero Section */}
       <section className={`py-20 transition-colors duration-300`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">

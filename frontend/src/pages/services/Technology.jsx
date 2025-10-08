@@ -14,6 +14,7 @@ import {
   Pause,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
+import { Helmet } from "react-helmet";
 
 export default function Technology() {
   const { isDarkMode } = useTheme();
@@ -192,6 +193,14 @@ export default function Technology() {
       className={`min-h-screen transition-colors duration-300 `}
       ref={sectionRef}
     >
+      <Helmet>
+        <title>Texnoloji | Imperia Tech</title>
+        <meta
+          name="description"
+          content="Imperia Tech-də müasir texnologiyalarla biznesinizi gücləndirin. Rəqabət qabiliyyətinizi artırmaq üçün innovativ həllər təqdim edirik."
+        />
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
