@@ -104,7 +104,7 @@ export default function Corporate() {
     },
     {
       icon: <ThumbsUp size={32} />,
-      number: "300+",
+      number: "20+",
       label: "Korporativ Layihə",
       description: "Müvəffəqiyyətlə tamamlanmış",
     },
@@ -116,7 +116,7 @@ export default function Corporate() {
     },
     {
       icon: <Clock size={32} />,
-      number: "99%",
+      number: "100%",
       label: "Müştəri Saxlama",
       description: "Uzunmüddətli əməkdaşlıq",
     },

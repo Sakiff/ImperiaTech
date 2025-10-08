@@ -21,6 +21,31 @@ export default function Footer() {
 
   const borderColor = isDarkMode ? "border-gray-600" : "border-gray-300";
 
+  // Navbar ilə eyni struktur
+  const menuItems = [
+    { key: "home", to: "/", label: "Ana səhifə" },
+    {
+      key: "services",
+      label: "Xidmətlər",
+      children: [
+        { to: "services/technology", label: "Texnoloji" },
+        { to: "services/corporate", label: "Korporativ xidmətlər" },
+        { to: "services/industry", label: "Sənaye" },
+      ],
+    },
+    {
+      key: "company",
+      label: "Şirkət",
+      children: [
+        { to: "about", label: "Haqqımızda" },
+        { to: "career", label: "Karyera" },
+        { to: "blog", label: "Blog" },
+        { to: "contact", label: "Əlaqə" },
+      ],
+    },
+    { key: "portfolio", to: "portfolio", label: "Portfolio" },
+  ];
+
   return (
     <motion.footer
       className={`bg-gradient-to-b ${bgGradient} ${textColor} py-12`}
@@ -50,29 +75,92 @@ export default function Footer() {
           </h1>
         </motion.div>
 
-        {/* Navigation */}
-        <motion.nav
-          className={`mb-6 mt-8 flex space-x-6 text-sm ${subTextColor}`}
+        {/* Desktop Navigation - Grid Layout */}
+        <motion.div
+          className="mb-6 mt-8 w-full max-w-4xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.5 }}
           viewport={{ once: true }}
         >
-          {[
-            { label: "Ana səhifə", path: "/" },
-            { label: "Haqqımızda", path: "/about" },
-            { label: "Əlaqə", path: "/contact" },
-          ].map((item, index) => (
-            <Link
-              key={index}
-              to={item.path}
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className={`transition duration-300 ${hoverText}`}
-            >
-              {item.label}
-            </Link>
-          ))}
-        </motion.nav>
+          {/* Desktop View */}
+          <div className="hidden lg:grid grid-cols-2 md:grid-cols-4 gap-8 text-left">
+            {menuItems.map((item) => (
+              <div key={item.key} className="space-y-3">
+                {item.children ? (
+                  <>
+                    <h3 className={`font-semibold text-lg ${textColor} mb-2`}>
+                      {item.label}
+                    </h3>
+                    <div className="space-y-2">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.to}
+                          to={child.to}
+                          onClick={() =>
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }
+                          className={`block text-sm ${subTextColor} transition duration-300 ${hoverText} hover:translate-x-1 transform`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    to={item.to}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                    className={`font-semibold text-lg block ${textColor} transition duration-300 ${hoverText}`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Navigation - Accordion */}
+          <div className="lg:hidden space-y-4">
+            {menuItems.map((item) => (
+              <div key={item.key} className="border-b border-gray-600 pb-4">
+                {item.children ? (
+                  <>
+                    <h3 className={`font-semibold text-lg ${textColor} mb-3`}>
+                      {item.label}
+                    </h3>
+                    <div className="grid grid-cols-1 gap-2 pl-4">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.to}
+                          to={child.to}
+                          onClick={() =>
+                            window.scrollTo({ top: 0, behavior: "smooth" })
+                          }
+                          className={`block text-sm ${subTextColor} transition duration-300 ${hoverText} py-1`}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <Link
+                    to={item.to}
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                    className={`font-semibold text-lg block ${textColor} transition duration-300 ${hoverText} py-2`}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Contact */}
         <div

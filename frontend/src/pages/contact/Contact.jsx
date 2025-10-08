@@ -74,13 +74,13 @@ export default function Contact() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "info@imperiatech.az",
+      value: "info@imperigroups.az",
       description: "Bizə email göndərin",
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: "Telefon",
-      value: "+994 12 345 67 89",
+      value: "+994 55 755 77 33",
       description: "Bizə zəng edin",
     },
     {
