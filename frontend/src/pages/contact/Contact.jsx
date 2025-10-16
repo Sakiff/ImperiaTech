@@ -358,14 +358,14 @@ export default function Contact() {
                   </h3>
                   <div className="h-80 rounded-2xl overflow-hidden">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.533524626789!2d49.82287277599998!3d40.37740965891883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d7ccec2e73b%3A0x9e360c3b4b774d12!2sAzerbaijan%20Technical%20University!5e0!3m2!1sen!2saz!4v1709567891234!5m2!1sen!2saz"
+                      src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d22795.927367366494!2d49.819142423569964!3d40.382528712404024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x40307d9beac62069%3A0x1f8d693f61e3667b!2s609%20Jafar%20Jabbarli%20street%2C%20Baku!3m2!1d40.385258799999995!2d49.8282448!5e1!3m2!1sen!2saz!4v1760634944696!5m2!1sen!2saz"
                       width="100%"
                       height="100%"
                       style={{ border: 0 }}
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                    />
+                    ></iframe>
                   </div>
                 </div>
               </motion.div>

@@ -218,7 +218,7 @@ export default function Footer() {
             {[
               {
                 Icon: Instagram,
-                url: "https://www.instagram.com/imperia_groups/",
+                url: "https://www.instagram.com/imperia_technologies/",
               },
               { Icon: Linkedin, url: "https://linkedin.com" },
             ].map((item, index) => (
