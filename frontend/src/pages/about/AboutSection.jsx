@@ -8,40 +8,45 @@ const teamMembers = [
   {
     name: "Davud Qədirov",
     role: "Co-Founder",
-    image: "/images/davud.png",
+    image:
+      "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
     bio: "Mən Davud Qədirov, texnologiya və təhsil sahəsində fəaliyyət göstərən gənc sahibkaram. Kibertəhlükəsizlik üzrə təhsil alıram və Imperia Tech layihəsi ilə bölgələrdəki gəncləri qlobal imkanlarla birləşdirirəm. Süni intellekt, startaplar və rəqəmsal inkişaf əsas maraq sahəmlərdəndir. Daim yenilik axtarışındayam və gələcəyi birlikdə qurmağa inanıram.",
   },
   {
     name: "Mirze Mirzəyev",
     role: "Frontend Developer",
-    image: "/images/Mirze.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
     bio: "Mən informasiya texnologiyaları sahəsində ixtisaslaşmış, frontend inkişafı üzrə çalışan bir proqramçıyam. İstifadəçi təcrübəsini ön planda tutaraq veb interfeyslərin hazırlanması və optimallaşdırılması ilə məşğulam. Hal-hazırda Imperia Tech komandasında frontend developer kimi fəaliyyət göstərirəm və müxtəlif veb layihələrin reallaşdırılmasında iştirak edirəm.",
   },
   {
     name: "Sakif Fətəliyev",
     role: "Frontend Developer",
-    image: "/images/sakif.jpeg",
+    image:
+      "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
     bio: "Mən veb inkişafı sahəsində fəaliyyət göstərən, daim öz üzərində çalışan bir gəncəm. Frontend əsas istiqamətim olsa da, backend texnologiyaları ilə də maraqlanıram. HTML, CSS, JavaScript, Tailwind və React ilə işləməyi sevirəm. Eyni zamanda Node.js və Express.js ilə sadə server tərəfli tətbiqlər hazırlayıram.",
   },
-  // {
-  //   name: "Hüseyn",
-  //   role: "MERN Stack Developer",
-  //   image: "/images/SEFERELIYEV.jpeg",
-  //   bio: "Mən MERN stack üzrə ixtisaslaşmış web developerəm. HTML, CSS və JavaScript texnologiyalarında güclü baza biliklərim var. Frontend tərəfdə React və Redux ilə interaktiv və sürətli interfeyslər hazırlayıram. Backend tərəfdə isə Node.js və Express.js istifadə edərək funksional serverlər qururam.",
-  // },
-  // {
-  //   name: "Hüseyin",
-  //   role: "Backend Developer",
-  //   image:
-  //     "https://avatars.githubusercontent.com/u/183388100?v=4&quality=lossless",
-  //   bio: "Mən Həsənov Hüseyn, Back-end developer kimi ixtisaslaşmışam. .NET texnologiyasına əsaslanan backend inkişafı üzrə təcrübəyə malikəm. Performanslı API-lər və güclü məntiqi strukturlar qururam. Clean Code və SOLID prinsiplərinə əsaslanaraq genişlənə bilən sistem arxitekturaları qurmağa üstünlük verirəm.",
-  // },
-  // {
-  //   name: "Sənan",
-  //   role: "Frontend Developer",
-  //   image: "/images/senan.jpeg",
-  //   bio: "Mən Sənan Ələkbərovam. Code Academy-ni Front-end Development ixtisası üzrə bitirərək HTML, CSS, JavaScript və React kimi texnologiyalarda işləmə bacarığı qazanmışam. Kod yazmaq və problemləri həll etmək mənim üçün həm peşəkar maraq, həm də səyahətdir.",
-  // },
+  {
+    name: "Hüseyn",
+    role: "MERN Stack Developer",
+    image:
+      "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
+    bio: "Mən MERN stack üzrə ixtisaslaşmış web developerəm. HTML, CSS və JavaScript texnologiyalarında güclü baza biliklərim var. Frontend tərəfdə React və Redux ilə interaktiv və sürətli interfeyslər hazırlayıram. Backend tərəfdə isə Node.js və Express.js istifadə edərək funksional serverlər qururam.",
+  },
+  {
+    name: "Hüseyin",
+    role: "Backend Developer",
+    image:
+      "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
+    bio: "Mən Həsənov Hüseyn, Back-end developer kimi ixtisaslaşmışam. .NET texnologiyasına əsaslanan backend inkişafı üzrə təcrübəyə malikəm. Performanslı API-lər və güclü məntiqi strukturlar qururam. Clean Code və SOLID prinsiplərinə əsaslanaraq genişlənə bilən sistem arxitekturaları qurmağa üstünlük verirəm.",
+  },
+  {
+    name: "Sənan",
+    role: "Frontend Developer",
+    image:
+      "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
+    bio: "Mən Sənan Ələkbərovam. Code Academy-ni Front-end Development ixtisası üzrə bitirərək HTML, CSS, JavaScript və React kimi texnologiyalarda işləmə bacarığı qazanmışam. Kod yazmaq və problemləri həll etmək mənim üçün həm peşəkar maraq, həm də səyahətdir.",
+  },
 ];
 
 export default function About() {

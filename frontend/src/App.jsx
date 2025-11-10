@@ -20,6 +20,7 @@ const Corporate = lazy(() => import("./pages/services/Corporate"));
 const Industry = lazy(() => import("./pages/services/Industry"));
 const Career = lazy(() => import("./pages/career/Career"));
 const Blog = lazy(() => import("./pages/blog/Blog"));
+const Calculator = lazy(() => import("./pages/services/Calculator"));
 
 function App() {
   const { isDarkMode } = useTheme();
@@ -52,6 +53,7 @@ function App() {
             <Route path="services/technology" element={<Technology />} />
             <Route path="services/corporate" element={<Corporate />} />
             <Route path="services/industry" element={<Industry />} />
+            <Route path="services/calculator" element={<Calculator />} />
             <Route path="career" element={<Career />} />
             <Route path="blog" element={<Blog />} />
             <Route path="contact" element={<Contact />} />

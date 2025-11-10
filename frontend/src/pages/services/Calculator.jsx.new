@@ -1,0 +1,62 @@
+import { motion, AnimatePresence } from "framer-motion";
+import PropTypes from "prop-types";
+import { useState, useEffect, useCallback } from "react";
+import { useTheme } from "../../context/ThemeContext";
+// ... rest of imports
+
+export default function Calculator() {
+  // ... rest of state and constants
+
+  const calculatePrice = useCallback(() => {
+    if (!formData.projectType) {
+      setTotalPrice(0);
+      setIsCalculated(false);
+      return;
+    }
+
+    const baseProject = projectTypes.find((p) => p.id === formData.projectType);
+    if (!baseProject) return;
+
+    const pageOption = pageOptions.find((p) => p.id === formData.pages);
+    if (!pageOption) return;
+
+    const designMultiplier =
+      designLevels.find((d) => d.id === formData.design)?.multiplier || 1;
+
+    // Base price + page price
+    let price = baseProject.basePrice;
+
+    // Səhifə sayına görə qiymət
+    const pageCount = parseInt(pageOption.id);
+    const pagePrice = pageCount * pageOption.pricePerPage;
+    price += pagePrice;
+
+    // Dizayn çarpanı
+    price *= designMultiplier;
+
+    // Xüsusiyyətlər
+    formData.features.forEach((featureId) => {
+      const feature = features.find((f) => f.id === featureId);
+      if (feature) {
+        price += feature.price;
+      }
+    });
+
+    // Custom items - yalnız dolu olanlar
+    const validCustomItems = formData.customItems.filter(
+      (item) => item.trim() !== ""
+    );
+    const customItemsPrice = validCustomItems.length * 150;
+    price += customItemsPrice;
+
+    setTotalPrice(Math.round(price));
+    setIsCalculated(true);
+  }, [formData, projectTypes, pageOptions, designLevels, features]);
+
+  // Dinamik qiymət hesablaması
+  useEffect(() => {
+    calculatePrice();
+  }, [calculatePrice]);
+
+  // ... rest of component code
+}
