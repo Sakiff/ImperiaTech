@@ -30,7 +30,6 @@ export default function Footer() {
       children: [
         { to: "services/technology", label: "Texnoloji" },
         { to: "services/corporate", label: "Korporativ xidmətlər" },
-        { to: "services/industry", label: "Sənaye" },
         { to: "services/calculator", label: "Qiymət Kalkulyatoru" },
       ],
     },
