@@ -401,10 +401,10 @@ export default function Blog() {
   return (
     <div className={`min-h-screen py-8 px-4 sm:px-6 lg:px-8`}>
       <Helmet>
-        <title>Blog | Imperia Tech</title>
+        <title>Blog | Imperia Groups</title>
         <meta
           name="description"
-          content="Imperia Tech bloq səhifəsi - Texnologiya, proqramlaşdırma və development haqqında ən son məqalələr"
+          content="Imperia Groups bloq səhifəsi - Texnologiya, proqramlaşdırma və development haqqında ən son məqalələr"
         />
       </Helmet>
 

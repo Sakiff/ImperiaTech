@@ -145,10 +145,10 @@ export default function Career() {
   return (
     <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <Helmet>
-        <title>Karyera | Imperia Tech</title>
+        <title>Karyera | Imperia Groups</title>
         <meta
           name="description"
-          content="Imperia Tech-də karyera qurmaq istəyirsiniz? Komandamıza qoşulun və texnologiyanın gələcəyini bizimlə formalaşdırın."
+          content="Imperia Groups-də karyera qurmaq istəyirsiniz? Komandamıza qoşulun və texnologiyanın gələcəyini bizimlə formalaşdırın."
         />
       </Helmet>
 
@@ -161,7 +161,7 @@ export default function Career() {
         >
           <h1 className={`text-5xl md:text-6xl font-bold mb-6 ${textColor}`}>
             <span className={`text-[${primaryColor}]`}>Karyera</span> Imperia
-            Tech-də
+            Groups-da
           </h1>
           <p
             className={`text-xl md:text-2xl ${secondaryText} max-w-4xl mx-auto leading-relaxed mb-8`}

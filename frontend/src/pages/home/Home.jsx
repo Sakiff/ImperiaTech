@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Ana səhifə | Imperia Tech</title>
+        <title>Ana səhifə | Imperia Groups</title>
         <meta
           name="description"
           content="İmperia Tech, texnologiya və innovasiyanı birləşdirərək müasir bizneslərə yüksək keyfiyyətli həllər təklif edir. Ən son texnoloji yeniliklər və xidmətlərlə tanış olun."
@@ -21,12 +21,12 @@ export default function Home() {
 
         <meta
           name="keywords"
-          content="Imperia Tech, texnologiya, innovasiya, biznes həlləri, müasir texnologiyalar, frontend, backend, rəqəmsal inkişaf"
+          content="Imperia Groups, texnologiya, innovasiya, biznes həlləri, müasir texnologiyalar, frontend, backend, rəqəmsal inkişaf"
         />
 
         <meta name="robots" content="index, follow" />
 
-        <meta property="og:title" content="Ana səhifə | Imperia Tech" />
+        <meta property="og:title" content="Ana səhifə | Imperia Groups" />
 
         <meta
           property="og:description"

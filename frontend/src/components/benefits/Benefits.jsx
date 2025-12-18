@@ -48,7 +48,7 @@ export default function Benefits() {
               backgroundImage: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`,
             }}
           >
-            Niyə İmperia Tech?
+            Niyə İmperia Groups?
           </h1>
 
           <p

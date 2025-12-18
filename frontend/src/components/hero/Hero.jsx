@@ -35,7 +35,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
         >
-          <strong style={{ color: brandColor }}>İmperia Tech</strong> ilə
+          <strong style={{ color: brandColor }}>İmperia Groups</strong> ilə
           <br />
           Peşəkar Veb Sayt Hazırlanması
         </motion.h1>
@@ -46,7 +46,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.4 }}
         >
-          İmperia Tech olaraq, yüksək keyfiyyətli və mobil uyğun veb sayt
+          İmperia Groups olaraq, yüksək keyfiyyətli və mobil uyğun veb sayt
           hazırlanması xidmətləri təqdim edirik. Biznesiniz üçün sürətli,
           təhlükəsiz və SEO optimizəli saytlar yaratmaqla brendinizin gücünü
           artırırıq. Sayt sifarişi üçün indi bizimlə əlaqə saxlayın.
@@ -79,7 +79,7 @@ export default function Hero() {
       >
         <img
           src={isDarkMode ? "/images/Hero.png" : "/images/Hero-dark.png"}
-          alt="Veb sayt hazırlanması - Imperia Tech"
+          alt="Veb sayt hazırlanması - Imperia Groups"
           className="w-full"
         />
       </motion.div>

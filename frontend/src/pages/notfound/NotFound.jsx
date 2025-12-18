@@ -11,7 +11,7 @@ export default function NotFound() {
   return (
     <section className={`min-h-screen flex items-center justify-center px-4`}>
       <Helmet>
-        <title>Səhifə Tapılmadı | Imperia Tech</title>
+        <title>Səhifə Tapılmadı | Imperia Groups</title>
       </Helmet>
 
       <motion.div

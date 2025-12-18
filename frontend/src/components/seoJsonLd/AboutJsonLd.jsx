@@ -4,15 +4,15 @@ export default function ServiceJsonLd() {
   const jsonLdData = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    name: "Haqqımızda - Imperia Tech",
+    name: "Haqqımızda - Imperia Groups",
     url: "https://imperiagroups.az/about",
     mainEntity: {
       "@type": "Organization",
-      name: "Imperia Tech",
+      name: "Imperia Groups",
       url: "https://imperiagroups.az",
       logo: "https://imperiagroups.az/images/Logo.jpg",
       description:
-        "Imperia Tech - Azərbaycanda fəaliyyət göstərən gənc və innovativ texnologiya komandasıdır. Komandamız veb sayt hazırlanması, SEO, təhsil platformaları və digər rəqəmsal xidmətlər təklif edir.",
+        "Imperia Groups - Azərbaycanda fəaliyyət göstərən gənc və innovativ texnologiya komandasıdır. Komandamız veb sayt hazırlanması, SEO, təhsil platformaları və digər rəqəmsal xidmətlər təklif edir.",
       address: {
         "@type": "PostalAddress",
         streetAddress: "Nərimanov rayonu, Bakı",

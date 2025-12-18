@@ -151,10 +151,10 @@ export default function Corporate() {
   return (
     <div className={`min-h-screen transition-colors duration-300 `}>
       <Helmet>
-        <title>Korporativ | Imperia Tech</title>
+        <title>Korporativ | Imperia Groups</title>
         <meta
           name="description"
-          content="Korporativ şirkətlər üçün rəqəmsal məsləhət və strategiya xidmətləri. Imperia Tech ilə biznesinizi növbəti səviyyəyə daşıyın."
+          content="Korporativ şirkətlər üçün rəqəmsal məsləhət və strategiya xidmətləri. Imperia Groups ilə biznesinizi növbəti səviyyəyə daşıyın."
         />
       </Helmet>
 

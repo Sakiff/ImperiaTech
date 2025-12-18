@@ -68,10 +68,10 @@ export default function Portfolio() {
   return (
     <div className="min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <Helmet>
-        <title>Portfolio | Imperia Tech</title>
+        <title>Portfolio | Imperia Groups</title>
         <meta
           name="description"
-          content="Imperia Tech komandası tərəfindən hazırlanmış unikal və funksional veb layihələrə buradan baxa bilərsiniz. Portfoliomuz peşəkar təcrübəmizi əks etdirir."
+          content="Imperia Groups komandası tərəfindən hazırlanmış unikal və funksional veb layihələrə buradan baxa bilərsiniz. Portfoliomuz peşəkar təcrübəmizi əks etdirir."
         />
       </Helmet>
 

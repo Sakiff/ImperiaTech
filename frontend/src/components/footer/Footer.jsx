@@ -71,7 +71,7 @@ export default function Footer() {
             className="w-12 h-12 rounded-xl"
           />
           <h1 className="text-2xl font-semibold ">
-            Imperia<span style={{ color: iconColor }}>Tech</span>
+            Imperia<span style={{ color: iconColor }}>Groups</span>
           </h1>
         </motion.div>
 

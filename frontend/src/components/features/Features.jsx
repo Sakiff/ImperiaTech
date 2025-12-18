@@ -63,7 +63,7 @@ export default function Features() {
           isDarkMode ? "text-gray-300" : "text-gray-700"
         }`}
       >
-        Imperia Tech komandası olaraq, veb saytların hazırlanması, SEO
+        Imperia Groups komandası olaraq, veb saytların hazırlanması, SEO
         optimizasiyası və rəqəmsal inkişaf sahəsində tam xidmət paketləri təqdim
         edirik.
       </p>

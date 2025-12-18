@@ -84,7 +84,7 @@ export default function Navbar() {
                   isDarkMode ? "text-[#CAFF34]" : "text-[#1D6696]"
                 }`}
               >
-                Tech
+                Groups
               </span>
             </strong>
           </h1>
@@ -262,7 +262,7 @@ export default function Navbar() {
                         isDarkMode ? "text-[#CAFF34]" : "text-[#1D6696]"
                       }`}
                     >
-                      Tech
+                      Groups
                     </span>
                   </strong>
                 </h1>

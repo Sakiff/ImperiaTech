@@ -8,7 +8,7 @@ export default function Academy() {
   return (
     <div className="p-8">
       <Helmet>
-        <title>Akademiya | Imperia Tech</title>
+        <title>Akademiya | Imperia Groups</title>
       </Helmet>
       <h1 className={`${isDarkMode ? "text-white" : "text-black"} text-3xl`}>
         Akademiya

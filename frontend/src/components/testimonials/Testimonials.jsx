@@ -6,7 +6,7 @@ const testimonials = [
   {
     jobTitle: "Dijital Marketinq Meneceri",
     review:
-      "İmperia Tech-in texnoloji həlləri və sayt quruculuğu xidmətləri bizim işimizi yeni səviyyəyə daşıdı. Peşəkar yanaşmaları və müasir texnologiyaları ilə gözəl nəticələr əldə etdik!",
+      "İmperia Groups-un texnoloji həlləri və sayt quruculuğu xidmətləri bizim işimizi yeni səviyyəyə daşıdı. Peşəkar yanaşmaları və müasir texnologiyaları ilə gözəl nəticələr əldə etdik!",
   },
   {
     jobTitle: "Proqram Təminatı Mütəxəssisi",

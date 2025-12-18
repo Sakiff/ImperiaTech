@@ -5,19 +5,19 @@ import { useTheme } from "../../context/ThemeContext";
 import AboutJsonLd from "../../components/seoJsonLd/AboutJsonLd";
 
 const teamMembers = [
-     {
+  {
     name: "Vüqar Həsənli",
     role: "CEO",
     image:
       "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
   },
-       {
+  {
     name: "Vüsal Abdurrəhmanov",
     role: "CTO",
     image:
       "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
   },
-        {
+  {
     name: "Cavid Sədiyev",
     role: "Maliyyə Rəhbəri",
     image:
@@ -28,14 +28,14 @@ const teamMembers = [
   //   role: "Co-Founder",
   //   image:
   //     "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
-  //   bio: "Mən Davud Qədirov, texnologiya və təhsil sahəsində fəaliyyət göstərən gənc sahibkaram. Kibertəhlükəsizlik üzrə təhsil alıram və Imperia Tech layihəsi ilə bölgələrdəki gəncləri qlobal imkanlarla birləşdirirəm. Süni intellekt, startaplar və rəqəmsal inkişaf əsas maraq sahəmlərdəndir. Daim yenilik axtarışındayam və gələcəyi birlikdə qurmağa inanıram.",
+  //   bio: "Mən Davud Qədirov, texnologiya və təhsil sahəsində fəaliyyət göstərən gənc sahibkaram. Kibertəhlükəsizlik üzrə təhsil alıram və Imperia Groups layihəsi ilə bölgələrdəki gəncləri qlobal imkanlarla birləşdirirəm. Süni intellekt, startaplar və rəqəmsal inkişaf əsas maraq sahəmlərdəndir. Daim yenilik axtarışındayam və gələcəyi birlikdə qurmağa inanıram.",
   // },
   // {
   //   name: "Mirze Mirzəyev",
   //   role: "Frontend Developer",
   //   image:
   //     "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
-  //   bio: "Mən informasiya texnologiyaları sahəsində ixtisaslaşmış, frontend inkişafı üzrə çalışan bir proqramçıyam. İstifadəçi təcrübəsini ön planda tutaraq veb interfeyslərin hazırlanması və optimallaşdırılması ilə məşğulam. Hal-hazırda Imperia Tech komandasında frontend developer kimi fəaliyyət göstərirəm və müxtəlif veb layihələrin reallaşdırılmasında iştirak edirəm.",
+  //   bio: "Mən informasiya texnologiyaları sahəsində ixtisaslaşmış, frontend inkişafı üzrə çalışan bir proqramçıyam. İstifadəçi təcrübəsini ön planda tutaraq veb interfeyslərin hazırlanması və optimallaşdırılması ilə məşğulam. Hal-hazırda Imperia Groups komandasında frontend developer kimi fəaliyyət göstərirəm və müxtəlif veb layihələrin reallaşdırılmasında iştirak edirəm.",
   // },
   // {
   //   name: "Sakif Fətəliyev",
@@ -93,10 +93,10 @@ export default function About() {
   return (
     <section className="min-h-screen py-16 px-6 sm:px-12 transition-colors duration-300">
       <Helmet>
-        <title>Haqqımızda | Imperia Tech</title>
+        <title>Haqqımızda | Imperia Groups</title>
         <meta
           name="description"
-          content="Imperia Tech komandası – innovativ yanaşma, texnoloji bilik və yaradıcılığın birləşdiyi yer. Biz kimik və necə işləyirik?"
+          content="Imperia Groups komandası – innovativ yanaşma, texnoloji bilik və yaradıcılığın birləşdiyi yer. Biz kimik və necə işləyirik?"
         />
       </Helmet>
 
@@ -116,7 +116,7 @@ export default function About() {
           Biz Kimik?
         </h1>
         <p className="text-lg text-gray-400 leading-relaxed">
-          <strong style={{ color: primaryColor }}>Imperia Tech</strong> —
+          <strong style={{ color: primaryColor }}>Imperia Groups</strong> —
           Azərbaycanda <strong>veb sayt hazırlanması</strong>,{" "}
           <strong>SEO xidməti</strong> və{" "}
           <strong>rəqəmsal texnologiyalar</strong> sahəsində fəaliyyət göstərən

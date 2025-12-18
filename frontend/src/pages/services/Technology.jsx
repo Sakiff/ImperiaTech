@@ -194,10 +194,10 @@ export default function Technology() {
       ref={sectionRef}
     >
       <Helmet>
-        <title>Texnoloji | Imperia Tech</title>
+        <title>Texnoloji | Imperia Groups</title>
         <meta
           name="description"
-          content="Imperia Tech-də müasir texnologiyalarla biznesinizi gücləndirin. Rəqabət qabiliyyətinizi artırmaq üçün innovativ həllər təqdim edirik."
+          content="Imperia Groups-də müasir texnologiyalarla biznesinizi gücləndirin. Rəqabət qabiliyyətinizi artırmaq üçün innovativ həllər təqdim edirik."
         />
       </Helmet>
 
