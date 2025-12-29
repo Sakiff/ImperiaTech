@@ -74,7 +74,7 @@ export default function Contact() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: "Email",
-      value: "info@imperigroups.az",
+      value: "info@imperiagroups.az",
       description: "Bizə email göndərin",
     },
     {
