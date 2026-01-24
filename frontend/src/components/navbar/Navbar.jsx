@@ -78,7 +78,7 @@ export default function Navbar() {
           />
           <h1 className="text-2xl">
             <strong>
-              Imperia
+              ImperiaMercedes
               <span
                 className={`${
                   isDarkMode ? "text-[#CAFF34]" : "text-[#1D6696]"
