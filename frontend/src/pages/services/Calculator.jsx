@@ -1,18 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
-import PropTypes from "prop-types";
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import {
   Calculator as CalculatorIcon,
   ArrowRight,
   Plus,
   Minus,
-  Zap,
   Palette,
-  Languages,
-  ShoppingCart,
-  BarChart3,
-  CreditCard,
   Layout,
   MessageCircle,
   Star,
@@ -22,880 +16,224 @@ import {
   Users,
   Database,
   Cloud,
+  CheckCircle2,
 } from "lucide-react";
 
 export default function Calculator() {
   const { isDarkMode } = useTheme();
   const [formData, setFormData] = useState({
-    projectType: "",
+    projectType: "landing",
     pages: "5",
     design: "basic",
     features: [],
     customItems: [""],
   });
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [isCalculated, setIsCalculated] = useState(false);
-  const [showCustomItemAnimation, setShowCustomItemAnimation] = useState({});
 
-  const projectTypes = useMemo(
-    () => [
-      { id: "landing", name: "Landing Page", basePrice: 300, icon: Layout },
-      { id: "business", name: "Biznes Saytı", basePrice: 600, icon: BarChart3 },
-      {
-        id: "ecommerce",
-        name: "E-ticarət",
-        basePrice: 1200,
-        icon: ShoppingCart,
-      },
-      {
-        id: "corporate",
-        name: "Korporativ Portal",
-        basePrice: 1800,
-        icon: Users,
-      },
-      { id: "blog", name: "Blog Platforması", basePrice: 500, icon: Globe },
-      { id: "custom", name: "Xüsusi Layihə", basePrice: 900, icon: Star },
-    ],
-    []
-  );
+  // Rəng sabiti - Sizin verdiyiniz rənglər
+  const themeColor = isDarkMode ? "#CAFF34" : "#1D6696";
 
-  const pageOptions = useMemo(
-    () => [
-      { id: "5", name: "5 səhifə", pricePerPage: 40 },
-      { id: "10", name: "10 səhifə", pricePerPage: 35 },
-      { id: "15", name: "15 səhifə", pricePerPage: 30 },
-      { id: "20", name: "20+ səhifə", pricePerPage: 25 },
-    ],
-    []
-  );
+  const projectTypes = useMemo(() => [
+    { id: "landing", name: "Landing Page", icon: Layout },
+    { id: "business", name: "Biznes Saytı", icon: Globe },
+    { id: "ecommerce", name: "E-ticarət", icon: Database },
+    { id: "corporate", name: "Korporativ Portal", icon: Users },
+    { id: "blog", name: "Blog Platforması", icon: MessageCircle },
+    { id: "custom", name: "Xüsusi Layihə", icon: Star },
+  ], []);
 
-  const designLevels = useMemo(
-    () => [
-      { id: "basic", name: "Basic Dizayn", multiplier: 1, color: "#6B7280" },
-      {
-        id: "premium",
-        name: "Premium Dizayn",
-        multiplier: 1.3,
-        color: "#CAFF34",
-      },
-      {
-        id: "custom",
-        name: "Tam Xüsusi Dizayn",
-        multiplier: 1.7,
-        color: "#1D6696",
-      },
-    ],
-    []
-  );
+  const pageOptions = useMemo(() => [
+    { id: "5", name: "5 səh." },
+    { id: "10", name: "10 səh." },
+    { id: "15", name: "15 səh." },
+    { id: "20", name: "20+ səh." },
+  ], []);
 
-  const features = useMemo(
-    () => [
-      {
-        id: "chatbot",
-        name: "Chatbot İntegrasiyası",
-        price: 250,
-        icon: MessageCircle,
-      },
-      { id: "cms", name: "CMS İnteqrasiyası", price: 250, icon: Layout },
-      { id: "seo", name: "SEO Optimizasiyası", price: 200, icon: BarChart3 },
-      {
-        id: "analytics",
-        name: "Analytics İnteqrasiyası",
-        price: 100,
-        icon: BarChart3,
-      },
-      { id: "multilang", name: "Çoxdilli Dəstək", price: 180, icon: Languages },
-      {
-        id: "payment",
-        name: "Ödəniş İnteqrasiyası",
-        price: 300,
-        icon: CreditCard,
-      },
-      {
-        id: "security",
-        name: "Təhlükəsizlik Paketi",
-        price: 120,
-        icon: Shield,
-      },
-      { id: "hosting", name: "Hosting & Domain", price: 80, icon: Cloud },
-      { id: "maintenance", name: "12 ay Dəstək", price: 200, icon: Clock },
-      { id: "database", name: "Verilənlər Bazası", price: 220, icon: Database },
-    ],
-    []
-  );
+  const designLevels = useMemo(() => [
+    { id: "basic", name: "Basic", desc: "Sürətli və sadə" },
+    { id: "premium", name: "Premium", desc: "Modern və unikal" },
+    { id: "custom", name: "Xüsusi", desc: "Sıfırdan dizayn" },
+  ], []);
 
-  const calculatePrice = useCallback(() => {
-    if (!formData.projectType) {
-      setTotalPrice(0);
-      setIsCalculated(false);
-      return;
-    }
+  const features = useMemo(() => [
+    { id: "chatbot", name: "Chatbot", icon: MessageCircle },
+    { id: "cms", name: "Panel (CMS)", icon: Layout },
+    { id: "seo", name: "SEO", icon: Star },
+    { id: "multilang", name: "Çoxdilli", icon: Globe },
+    { id: "payment", name: "Ödəniş", icon: Shield },
+    { id: "maintenance", name: "Dəstək", icon: Clock },
+  ], []);
 
-    const baseProject = projectTypes.find((p) => p.id === formData.projectType);
-    if (!baseProject) return;
-
-    const pageOption = pageOptions.find((p) => p.id === formData.pages);
-    if (!pageOption) return;
-
-    const designMultiplier =
-      designLevels.find((d) => d.id === formData.design)?.multiplier || 1;
-
-    // Base price + page price
-    let price = baseProject.basePrice;
-
-    // Səhifə sayına görə qiymət
-    const pageCount = parseInt(pageOption.id);
-    const pagePrice = pageCount * pageOption.pricePerPage;
-    price += pagePrice;
-
-    // Dizayn çarpanı
-    price *= designMultiplier;
-
-    // Xüsusiyyətlər
-    formData.features.forEach((featureId) => {
-      const feature = features.find((f) => f.id === featureId);
-      if (feature) {
-        price += feature.price;
-      }
-    });
-
-    // Custom items - yalnız dolu olanlar
-    const validCustomItems = formData.customItems.filter(
-      (item) => item.trim() !== ""
-    );
-    const customItemsPrice = validCustomItems.length * 150;
-    price += customItemsPrice;
-
-    setTotalPrice(Math.round(price));
-    setIsCalculated(true);
-  }, [formData, projectTypes, pageOptions, designLevels, features]);
-
-  // Qiymət dəyişikliklərinə reaksiya
-  useEffect(() => {
-    calculatePrice();
-  }, [calculatePrice]);
-
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-
+  const handleInputChange = (name, value, type, checked) => {
     if (type === "checkbox") {
-      setFormData((prev) => ({
+      setFormData(prev => ({
         ...prev,
-        features: checked
-          ? [...prev.features, name]
-          : prev.features.filter((f) => f !== name),
+        features: checked ? [...prev.features, name] : prev.features.filter(f => f !== name),
       }));
     } else {
-      setFormData((prev) => ({
-        ...prev,
-        [name]: value,
-      }));
-    }
-  };
-
-  const handleCustomItemChange = (index, value) => {
-    const newCustomItems = [...formData.customItems];
-    newCustomItems[index] = value;
-    setFormData((prev) => ({
-      ...prev,
-      customItems: newCustomItems,
-    }));
-
-    // Animasiya yalnız dəyər dəyişəndə
-    if (value.trim() !== "" && !showCustomItemAnimation[index]) {
-      setShowCustomItemAnimation((prev) => ({ ...prev, [index]: true }));
-    }
-  };
-
-  const addCustomItem = () => {
-    // Yalnız sonuncu input dolu olduqda yeni əlavə et
-    const lastItem = formData.customItems[formData.customItems.length - 1];
-    if (lastItem.trim() !== "") {
-      setFormData((prev) => ({
-        ...prev,
-        customItems: [...prev.customItems, ""],
-      }));
-    }
-  };
-
-  const removeCustomItem = (index) => {
-    if (formData.customItems.length > 1) {
-      const newCustomItems = formData.customItems.filter((_, i) => i !== index);
-      setFormData((prev) => ({
-        ...prev,
-        customItems: newCustomItems,
-      }));
-
-      // Animasiya state-ni təmizlə
-      setShowCustomItemAnimation((prev) => {
-        const newState = { ...prev };
-        delete newState[index];
-        return newState;
-      });
+      setFormData(prev => ({ ...prev, [name]: value }));
     }
   };
 
   const getWhatsAppMessage = () => {
-    const projectName =
-      projectTypes.find((p) => p.id === formData.projectType)?.name ||
-      "Xüsusi Layihə";
-    const pageInfo =
-      pageOptions.find((p) => p.id === formData.pages)?.name || "";
-    const designLevel =
-      designLevels.find((d) => d.id === formData.design)?.name || "";
-
-    let message = `Salam! Qiymət kalkulyatorundan istifadə edərək təklif almaq istəyirəm.\n\n`;
-    message += `Layihə Növü: ${projectName}\n`;
-    message += `Səhifə Sayı: ${pageInfo}\n`;
-    message += `Dizayn Səviyyəsi: ${designLevel}\n`;
-    message += `Təxmini Qiymət: ${totalPrice}₼\n\n`;
-
-    if (formData.features.length > 0) {
-      message += `Seçilmiş Xüsusiyyətlər:\n`;
-      formData.features.forEach((featureId) => {
-        const feature = features.find((f) => f.id === featureId);
-        if (feature) message += `• ${feature.name}\n`;
-      });
-      message += `\n`;
-    }
-
-    const customItems = formData.customItems.filter(
-      (item) => item.trim() !== ""
-    );
-    if (customItems.length > 0) {
-      message += `Əlavə İstəklər:\n`;
-      customItems.forEach((item) => {
-        message += `• ${item}\n`;
-      });
-    }
-
+    let message = `Salam! Yeni layihə üçün qiymət almaq istəyirəm:\n\n`;
+    message += `🚀 Növ: ${projectTypes.find(p => p.id === formData.projectType)?.name}\n`;
+    message += `📄 Səhifə: ${formData.pages}\n`;
+    message += `🎨 Dizayn: ${formData.design.toUpperCase()}\n`;
+    if (formData.features.length > 0) message += `⚙️ Özəlliklər: ${formData.features.join(", ")}\n`;
     return encodeURIComponent(message);
   };
 
-  const whatsappUrl = `https://api.whatsapp.com/send/?phone=994557557733&text=${getWhatsAppMessage()}&type=phone_number&app_absent=0`;
-
-  const PriceTag = ({ price, isSelected }) => (
-    <motion.div
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      className={`absolute -top-2 -right-2 px-2 py-1 rounded-full text-xs font-bold ${
-        isSelected
-          ? isDarkMode
-            ? "bg-[#CAFF34] text-black"
-            : "bg-[#1D6696] text-white"
-          : isDarkMode
-          ? "bg-[#CAFF34]/20 text-[#CAFF34]"
-          : "bg-[#1D6696]/20 text-[#1D6696]"
-      }`}
-    >
-      +{price}₼
-    </motion.div>
-  );
-
-  PriceTag.propTypes = {
-    price: PropTypes.number.isRequired,
-    isSelected: PropTypes.bool.isRequired,
-  };
-
-  const MultiplierBadge = ({ multiplier }) => (
-    <div
-      className={`absolute -top-2 -left-2 px-2 py-1 rounded-full text-xs font-bold ${
-        isDarkMode ? "bg-[#CAFF34] text-black" : "bg-[#1D6696] text-white"
-      }`}
-    >
-      {multiplier}x
-    </div>
-  );
-
-  MultiplierBadge.propTypes = {
-    multiplier: PropTypes.number.isRequired,
-  };
-
-  const PagePriceBadge = ({ pageOption }) => (
-    <div
-      className={`absolute -top-2 -right-2 px-2 py-1 rounded-full text-xs font-bold ${
-        isDarkMode
-          ? "bg-[#CAFF34]/20 text-[#CAFF34]"
-          : "bg-[#1D6696]/20 text-[#1D6696]"
-      }`}
-    >
-      {pageOption.pricePerPage}₼/səhifə
-    </div>
-  );
-
-  PagePriceBadge.propTypes = {
-    pageOption: PropTypes.shape({
-      pricePerPage: PropTypes.number.isRequired,
-    }).isRequired,
-  };
+  const whatsappUrl = `https://api.whatsapp.com/send/?phone=994557557733&text=${getWhatsAppMessage()}`;
 
   return (
-    <div
-      className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
-        isDarkMode ? " text-white" : " text-gray-900"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            className={`inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium mb-6 ${
-              isDarkMode
-                ? "bg-[#CAFF34]/10 text-[#CAFF34] border border-[#CAFF34]/20"
-                : "bg-[#1D6696]/10 text-[#1D6696] border border-[#1D6696]/20"
-            }`}
+    <div className={`min-h-screen py-20 px-4 relative overflow-hidden transition-colors duration-500 ${isDarkMode ? "bg-[#0A0A0A] text-white" : "bg-gray-50 text-gray-900"}`}>
+      
+      {/* Background Glows */}
+      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full blur-[120px] opacity-20" style={{ backgroundColor: themeColor }} />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] rounded-full blur-[100px] opacity-10" style={{ backgroundColor: themeColor }} />
+
+      <div className="max-w-6xl mx-auto relative z-10">
+        
+        {/* Hero Section */}
+        <header className="text-center mb-16">
+          <motion.span 
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+            className="px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block border"
+            style={{ borderColor: `${themeColor}44`, color: themeColor, backgroundColor: `${themeColor}11` }}
           >
-            <CalculatorIcon size={20} />
-            Qiymət Kalkulyatoru
-          </motion.div>
-          <h1 className="text-5xl font-bold mb-6">
-            Layihənizin{" "}
-            <span className={isDarkMode ? "text-[#CAFF34]" : "text-[#1D6696]"}>
-              Qiymətini
-            </span>{" "}
-            Hesablayın
+            Smart Price Calculator
+          </motion.span>
+          <h1 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
+            Layihəni <span style={{ color: themeColor }}>Konfiqurasiya</span> et
           </h1>
-          <p className="text-xl opacity-80 max-w-3xl mx-auto leading-relaxed">
-            Real bazar qiymətləri ilə layihənizin təxmini qiymətini anlıq
-            hesablayın. Hər bir seçim avtomatik olaraq qiymətə əks olunur.
-          </p>
-        </motion.div>
+        </header>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Calculator Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="lg:col-span-2"
-          >
-            <form
-              className={`${
-                isDarkMode ? "bg-[#1A1A1A]" : "bg-white"
-              } rounded-3xl shadow-2xl p-8 space-y-8 border ${
-                isDarkMode ? "border-gray-800" : "border-gray-200"
-              }`}
-            >
-              {/* Project Type */}
-              <div>
-                <label className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Layout className="w-6 h-6" />
-                  Layihə Növü
-                </label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {projectTypes.map((type) => {
-                    const IconComponent = type.icon;
-                    return (
-                      <motion.label
-                        key={type.id}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className={`relative flex items-center p-6 rounded-2xl cursor-pointer transition-all border-2 ${
-                          formData.projectType === type.id
-                            ? isDarkMode
-                              ? "border-[#CAFF34] bg-[#CAFF34]/10"
-                              : "border-[#1D6696] bg-[#1D6696]/10"
-                            : isDarkMode
-                            ? "border-gray-700 bg-gray-800 hover:border-gray-600"
-                            : "border-gray-200 bg-gray-50 hover:border-gray-300"
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="projectType"
-                          value={type.id}
-                          checked={formData.projectType === type.id}
-                          onChange={handleInputChange}
-                          className="sr-only"
-                        />
-                        <IconComponent
-                          className={`w-8 h-8 mr-4 ${
-                            formData.projectType === type.id
-                              ? isDarkMode
-                                ? "text-[#CAFF34]"
-                                : "text-[#1D6696]"
-                              : "text-gray-400"
-                          }`}
-                        />
-                        <div className="flex-1">
-                          <div className="font-semibold text-lg">
-                            {type.name}
-                          </div>
-                          <div
-                            className={`text-sm mt-1 ${
-                              formData.projectType === type.id
-                                ? isDarkMode
-                                  ? "text-[#CAFF34]"
-                                  : "text-[#1D6696]"
-                                : "text-gray-500"
-                            }`}
-                          >
-                            {type.basePrice}₼ başlanğıc
-                          </div>
-                        </div>
-                        <PriceTag
-                          price={type.basePrice}
-                          isSelected={formData.projectType === type.id}
-                        />
-                      </motion.label>
-                    );
-                  })}
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Main Form */}
+          <div className="lg:col-span-8 space-y-12">
+            
+            {/* Section 1: Type */}
+            <section>
+              <h3 className="text-sm font-bold opacity-50 uppercase mb-6 flex items-center gap-2">
+                <Layout size={16} /> 1. Layihənin növü nədir?
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {projectTypes.map((type) => (
+                  <button
+                    key={type.id}
+                    onClick={() => handleInputChange("projectType", type.id)}
+                    className={`p-6 rounded-3xl border-2 text-left transition-all duration-300 group ${
+                      formData.projectType === type.id 
+                      ? "scale-[0.98] shadow-xl" 
+                      : isDarkMode ? "bg-white/5 border-white/10 hover:border-white/20" : "bg-white border-gray-200 hover:border-gray-300"
+                    }`}
+                    style={formData.projectType === type.id ? { borderColor: themeColor, backgroundColor: `${themeColor}15` } : {}}
+                  >
+                    <type.icon size={28} className="mb-4 transition-transform group-hover:scale-110" style={{ color: formData.projectType === type.id ? themeColor : "inherit" }} />
+                    <p className="font-bold text-sm leading-tight">{type.name}</p>
+                  </button>
+                ))}
               </div>
+            </section>
 
-              {/* Pages Range */}
-              <div>
-                <label className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Plus className="w-6 h-6" />
-                  Səhifə Sayı
-                </label>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {pageOptions.map((pageOption) => (
-                    <motion.label
-                      key={pageOption.id}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className={`relative flex flex-col items-center p-4 rounded-xl cursor-pointer transition-all border-2 ${
-                        formData.pages === pageOption.id
-                          ? isDarkMode
-                            ? "border-[#CAFF34] bg-[#CAFF34]/10"
-                            : "border-[#1D6696] bg-[#1D6696]/10"
-                          : isDarkMode
-                          ? "border-gray-700 bg-gray-800 hover:border-gray-600"
-                          : "border-gray-200 bg-gray-50 hover:border-gray-300"
-                      }`}
+            {/* Section 2: Scale & Design */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <section>
+                <h3 className="text-sm font-bold opacity-50 uppercase mb-6 italic">2. Ölçü (Səhifə)</h3>
+                <div className="flex bg-black/5 dark:bg-white/5 p-1 rounded-2xl border border-white/10">
+                  {pageOptions.map((opt) => (
+                    <button
+                      key={opt.id}
+                      onClick={() => handleInputChange("pages", opt.id)}
+                      className="flex-1 py-3 rounded-xl text-xs font-bold transition-all"
+                      style={formData.pages === opt.id ? { backgroundColor: themeColor, color: isDarkMode ? "#000" : "#fff" } : {}}
                     >
-                      <input
-                        type="radio"
-                        name="pages"
-                        value={pageOption.id}
-                        checked={formData.pages === pageOption.id}
-                        onChange={handleInputChange}
-                        className="sr-only"
-                      />
-                      <span className="font-semibold text-center">
-                        {pageOption.name}
-                      </span>
-                      <PagePriceBadge pageOption={pageOption} />
-                    </motion.label>
+                      {opt.name}
+                    </button>
                   ))}
                 </div>
-              </div>
+              </section>
 
-              {/* Design Level */}
-              <div>
-                <label className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Palette className="w-6 h-6" />
-                  Dizayn Səviyyəsi
-                </label>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {designLevels.map((level) => (
-                    <motion.label
-                      key={level.id}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className={`relative flex flex-col items-center p-6 rounded-2xl cursor-pointer transition-all border-2 ${
-                        formData.design === level.id
-                          ? isDarkMode
-                            ? "border-[#CAFF34] bg-[#CAFF34]/10"
-                            : "border-[#1D6696] bg-[#1D6696]/10"
-                          : isDarkMode
-                          ? "border-gray-700 bg-gray-800 hover:border-gray-600"
-                          : "border-gray-200 bg-gray-50 hover:border-gray-300"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="design"
-                        value={level.id}
-                        checked={formData.design === level.id}
-                        onChange={handleInputChange}
-                        className="sr-only"
-                      />
-                      <div className="text-2xl font-bold mb-2">
-                        {level.multiplier}x
-                      </div>
-                      <span className="font-semibold text-center text-sm">
-                        {level.name}
-                      </span>
-                      <MultiplierBadge multiplier={level.multiplier} />
-                    </motion.label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Additional Features */}
-              <div>
-                <label className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Zap className="w-6 h-6" />
-                  Əlavə Xüsusiyyətlər
-                </label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {features.map((feature) => {
-                    const IconComponent = feature.icon;
-                    return (
-                      <motion.label
-                        key={feature.id}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className={`relative flex items-center p-4 rounded-xl cursor-pointer transition-all border-2 ${
-                          formData.features.includes(feature.id)
-                            ? isDarkMode
-                              ? "border-[#CAFF34] bg-[#CAFF34]/10"
-                              : "border-[#1D6696] bg-[#1D6696]/10"
-                            : isDarkMode
-                            ? "border-gray-700 bg-gray-800 hover:border-gray-600"
-                            : "border-gray-200 bg-gray-50 hover:border-gray-300"
-                        }`}
-                      >
-                        <input
-                          type="checkbox"
-                          name={feature.id}
-                          checked={formData.features.includes(feature.id)}
-                          onChange={handleInputChange}
-                          className="sr-only"
-                        />
-                        <IconComponent
-                          className={`w-5 h-5 mr-3 ${
-                            formData.features.includes(feature.id)
-                              ? isDarkMode
-                                ? "text-[#CAFF34]"
-                                : "text-[#1D6696]"
-                              : "text-gray-400"
-                          }`}
-                        />
-                        <span className="flex-1 font-medium">
-                          {feature.name}
-                        </span>
-                        <PriceTag
-                          price={feature.price}
-                          isSelected={formData.features.includes(feature.id)}
-                        />
-                      </motion.label>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Custom Items */}
-              <div>
-                <label className="text-xl font-bold mb-6 flex items-center gap-3">
-                  <Plus className="w-6 h-6" />
-                  Əlavə İstəklər
-                </label>
+              <section>
+                <h3 className="text-sm font-bold opacity-50 uppercase mb-6 italic">3. Dizayn Keyfiyyəti</h3>
                 <div className="space-y-3">
-                  {formData.customItems.map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="flex gap-3 items-start"
+                  {designLevels.map((lvl) => (
+                    <div 
+                      key={lvl.id}
+                      onClick={() => handleInputChange("design", lvl.id)}
+                      className={`cursor-pointer p-4 rounded-2xl border transition-all flex justify-between items-center ${
+                        formData.design === lvl.id ? "bg-white/10" : "opacity-60 grayscale hover:grayscale-0 hover:opacity-100"
+                      }`}
+                      style={{ borderColor: formData.design === lvl.id ? themeColor : "transparent" }}
                     >
-                      <div className="flex-1 relative">
-                        <input
-                          type="text"
-                          value={item}
-                          onChange={(e) =>
-                            handleCustomItemChange(index, e.target.value)
-                          }
-                          placeholder="Xüsusi istəyinizi yazın (məsələn: Xüsusi animasiya, Admin panel, və s.)"
-                          className={`w-full p-4 rounded-xl border-2 transition-all ${
-                            isDarkMode
-                              ? "bg-gray-800 border-gray-700 focus:border-[#CAFF34] focus:bg-gray-700"
-                              : "bg-gray-50 border-gray-200 focus:border-[#1D6696] focus:bg-white"
-                          }`}
-                        />
-                        {/* Qiymət etiketi yalnız input dolu olduqda və animasiya aktiv olduqda görünür */}
-                        <AnimatePresence>
-                          {item.trim() !== "" &&
-                            showCustomItemAnimation[index] && (
-                              <motion.div
-                                initial={{ scale: 0, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                exit={{ scale: 0, opacity: 0 }}
-                                className={`absolute -top-2 -right-2 px-2 py-1 rounded-full text-xs font-bold ${
-                                  isDarkMode
-                                    ? "bg-[#CAFF34] text-black"
-                                    : "bg-[#1D6696] text-white"
-                                }`}
-                              >
-                                +150₼
-                              </motion.div>
-                            )}
-                        </AnimatePresence>
+                      <div>
+                        <p className="font-bold text-sm">{lvl.name}</p>
+                        <p className="text-[10px] opacity-60">{lvl.desc}</p>
                       </div>
-                      {formData.customItems.length > 1 && (
-                        <motion.button
-                          type="button"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          onClick={() => removeCustomItem(index)}
-                          className={`p-4 rounded-xl mt-1 ${
-                            isDarkMode
-                              ? "bg-red-500/20 text-red-400 hover:bg-red-500/30"
-                              : "bg-red-100 text-red-600 hover:bg-red-200"
-                          }`}
-                        >
-                          <Minus size={20} />
-                        </motion.button>
-                      )}
-                      {/* Yalnız sonuncu input dolu olduqda yeni əlavə et butonu görünsün */}
-                      {index === formData.customItems.length - 1 &&
-                        item.trim() !== "" && (
-                          <motion.button
-                            type="button"
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            onClick={addCustomItem}
-                            className={`p-4 rounded-xl mt-1 ${
-                              isDarkMode
-                                ? "bg-[#CAFF34]/20 text-[#CAFF34] hover:bg-[#CAFF34]/30"
-                                : "bg-[#1D6696]/20 text-[#1D6696] hover:bg-[#1D6696]/30"
-                            }`}
-                          >
-                            <Plus size={20} />
-                          </motion.button>
-                        )}
-                    </motion.div>
+                      {formData.design === lvl.id && <CheckCircle2 size={16} style={{ color: themeColor }} />}
+                    </div>
                   ))}
                 </div>
-                <div className="flex justify-between items-center mt-4">
-                  <p
-                    className={`text-sm ${
-                      isDarkMode ? "text-gray-400" : "text-gray-600"
-                    }`}
-                  >
-                    Hər bir əlavə istək üçün +150₼
-                  </p>
-                  <div
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      isDarkMode
-                        ? "bg-[#CAFF34]/10 text-[#CAFF34]"
-                        : "bg-[#1D6696]/10 text-[#1D6696]"
-                    }`}
-                  >
-                    {formData.customItems.filter((item) => item.trim() !== "")
-                      .length * 150}
-                    ₼
-                  </div>
+              </section>
+            </div>
+
+            {/* Section 3: Features */}
+            <section>
+              <h3 className="text-sm font-bold opacity-50 uppercase mb-6">4. Funksionallıq</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {features.map((f) => (
+                  <label key={f.id} className={`flex items-center gap-4 p-4 rounded-2xl border-2 cursor-pointer transition-all ${
+                    formData.features.includes(f.id) ? "border-current" : "border-white/5 bg-white/5"
+                  }`} style={{ color: formData.features.includes(f.id) ? themeColor : "inherit" }}>
+                    <input 
+                      type="checkbox" className="hidden" 
+                      onChange={(e) => handleInputChange(f.id, null, "checkbox", e.target.checked)}
+                    />
+                    <f.icon size={20} />
+                    <span className="font-semibold text-sm">{f.name}</span>
+                  </label>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          {/* Sidebar Summary */}
+          <div className="lg:col-span-4 sticky top-10">
+            <div className={`p-8 rounded-[40px] border-4 ${isDarkMode ? "bg-white/5 border-white/10" : "bg-white border-gray-100 shadow-2xl"}`}>
+              <h4 className="text-xl font-black mb-8 flex items-center gap-3">
+                <CalculatorIcon style={{ color: themeColor }} /> Xülasə
+              </h4>
+              
+              <div className="space-y-6 mb-10">
+                <div className="flex justify-between items-end border-b border-white/10 pb-4">
+                  <span className="text-xs opacity-50 uppercase font-bold tracking-tighter">Layihə</span>
+                  <span className="font-bold text-sm">{projectTypes.find(p => p.id === formData.projectType)?.name}</span>
+                </div>
+                <div className="flex justify-between items-end border-b border-white/10 pb-4">
+                  <span className="text-xs opacity-50 uppercase font-bold tracking-tighter">Həcm</span>
+                  <span className="font-bold text-sm">{formData.pages} Səhifə</span>
+                </div>
+                <div className="flex justify-between items-end border-b border-white/10 pb-4">
+                  <span className="text-xs opacity-50 uppercase font-bold tracking-tighter">Özəllik</span>
+                  <span className="font-bold text-sm">{formData.features.length} ədəd</span>
                 </div>
               </div>
-            </form>
-          </motion.div>
 
-          {/* Price Display Sidebar */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            className="lg:col-span-1"
-          >
-            <div
-              className={`sticky top-8 ${
-                isDarkMode ? "bg-[#1A1A1A]" : "bg-white"
-              } rounded-3xl shadow-2xl p-8 border ${
-                isDarkMode ? "border-gray-800" : "border-gray-200"
-              }`}
-            >
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold mb-2">Təxmini Qiymət</h2>
-                <p className="text-gray-500">Real-time hesablanır</p>
-              </div>
-
-              <AnimatePresence mode="wait">
-                {isCalculated && totalPrice > 0 ? (
-                  <motion.div
-                    key="calculated"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8 }}
-                    className="space-y-6"
-                  >
-                    <div className="text-center">
-                      <div
-                        className={`text-6xl font-bold mb-4 ${
-                          isDarkMode ? "text-[#CAFF34]" : "text-[#1D6696]"
-                        }`}
-                      >
-                        {totalPrice}₼
-                      </div>
-                    </div>
-
-                    {/* Price Breakdown */}
-                    <div
-                      className={`p-4 rounded-xl ${
-                        isDarkMode ? "bg-gray-800" : "bg-gray-100"
-                      }`}
-                    >
-                      <h3 className="font-semibold mb-3">
-                        Qiymət Təfərrüatları:
-                      </h3>
-                      <div className="space-y-2 text-sm">
-                        {formData.projectType && (
-                          <div className="flex justify-between items-center">
-                            <span>
-                              {
-                                projectTypes.find(
-                                  (p) => p.id === formData.projectType
-                                )?.name
-                              }
-                            </span>
-                            <span className="font-semibold">
-                              {
-                                projectTypes.find(
-                                  (p) => p.id === formData.projectType
-                                )?.basePrice
-                              }
-                              ₼
-                            </span>
-                          </div>
-                        )}
-                        {formData.pages && (
-                          <div className="flex justify-between items-center">
-                            <span>
-                              {
-                                pageOptions.find((p) => p.id === formData.pages)
-                                  ?.name
-                              }
-                            </span>
-                            <span className="font-semibold">
-                              +
-                              {parseInt(formData.pages) *
-                                pageOptions.find((p) => p.id === formData.pages)
-                                  ?.pricePerPage}
-                              ₼
-                            </span>
-                          </div>
-                        )}
-                        {formData.design && (
-                          <div className="flex justify-between items-center">
-                            <span>
-                              {
-                                designLevels.find(
-                                  (d) => d.id === formData.design
-                                )?.name
-                              }
-                            </span>
-                            <span className="font-semibold">
-                              {
-                                designLevels.find(
-                                  (d) => d.id === formData.design
-                                )?.multiplier
-                              }
-                              x
-                            </span>
-                          </div>
-                        )}
-                        {formData.features.length > 0 && (
-                          <>
-                            <div className="border-t border-gray-600 pt-2 mt-2">
-                              <div className="font-semibold mb-1">
-                                Xüsusiyyətlər:
-                              </div>
-                              {formData.features.map((featureId) => {
-                                const feature = features.find(
-                                  (f) => f.id === featureId
-                                );
-                                return (
-                                  <div
-                                    key={featureId}
-                                    className="flex justify-between items-center"
-                                  >
-                                    <span className="text-xs">
-                                      • {feature.name}
-                                    </span>
-                                    <span className="font-semibold text-xs">
-                                      +{feature.price}₼
-                                    </span>
-                                  </div>
-                                );
-                              })}
-                            </div>
-                          </>
-                        )}
-                        {formData.customItems.filter(
-                          (item) => item.trim() !== ""
-                        ).length > 0 && (
-                          <div className="border-t border-gray-600 pt-2 mt-2">
-                            <div className="font-semibold mb-1">
-                              Əlavə İstəklər:
-                            </div>
-                            <div className="flex justify-between items-center">
-                              <span className="text-xs">
-                                {
-                                  formData.customItems.filter(
-                                    (item) => item.trim() !== ""
-                                  ).length
-                                }{" "}
-                                əlavə
-                              </span>
-                              <span className="font-semibold text-xs">
-                                +
-                                {formData.customItems.filter(
-                                  (item) => item.trim() !== ""
-                                ).length * 150}
-                                ₼
-                              </span>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* WhatsApp Button */}
-                    <motion.a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      className={`w-full py-4 px-6 rounded-xl font-bold text-lg flex items-center justify-center gap-3 shadow-lg ${
-                        isDarkMode
-                          ? "bg-green-600 text-white hover:bg-green-700 shadow-green-600/20"
-                          : "bg-green-500 text-white hover:bg-green-600 shadow-green-500/20"
-                      } transition-all duration-300`}
-                    >
-                      <MessageCircle size={20} />
-                      Pulsuz təklif al
-                      <ArrowRight size={20} />
-                    </motion.a>
-
-                    <p className="text-xs text-center opacity-70">
-                      * Bu qiymət təxminidir və dəqiq qiymət müzakirə zamanı
-                      müəyyən ediləcək.
-                    </p>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="not-calculated"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="text-center py-12"
-                  >
-                    <CalculatorIcon
-                      size={64}
-                      className={`mx-auto mb-4 ${
-                        isDarkMode ? "text-gray-700" : "text-gray-300"
-                      }`}
-                    />
-                    <h3 className="text-xl font-semibold mb-2">
-                      Qiymət Göstəricisi
-                    </h3>
-                    <p className="text-gray-500">
-                      Layihə növünü seçin, qiymət avtomatik hesablansın
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <motion.a
+                href={whatsappUrl}
+                target="_blank"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full py-5 rounded-2xl flex items-center justify-center gap-3 font-black text-white shadow-2xl transition-all"
+                style={{ backgroundColor: themeColor, boxShadow: `0 10px 40px -10px ${themeColor}66` }}
+              >
+                TƏKLİF AL <ArrowRight size={20} />
+              </motion.a>
+              <p className="text-[10px] text-center mt-6 opacity-40 font-medium">Qiymətləndirmə sorğunuza uyğun olaraq menecer tərəfindən göndəriləcək.</p>
             </div>
-          </motion.div>
+          </div>
+
         </div>
       </div>
     </div>

@@ -169,7 +169,14 @@ export default function Footer() {
           {[
             {
               icon: <Mail size={18} />,
-              text: "info@imperiagroups.az",
+              text: (
+                <a
+                  href="mailto:info@imperiagroups.az"
+                  className={`transition duration-300 ${hoverText}`}
+                >
+                  info@imperiagroups.az
+                </a>
+              ),
               delay: 0.4,
             },
             {
@@ -220,7 +227,10 @@ export default function Footer() {
                 Icon: Instagram,
                 url: "https://www.instagram.com/imperia_technologies/",
               },
-              { Icon: Linkedin, url: "https://linkedin.com" },
+              {
+                Icon: Linkedin,
+                url: "https://az.linkedin.com/in/imperia-groups-082067362",
+              },
             ].map((item, index) => (
               <motion.a
                 key={index}

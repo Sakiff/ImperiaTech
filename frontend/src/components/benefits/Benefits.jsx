@@ -28,7 +28,7 @@ export default function Benefits() {
 
   return (
     <div className="my-16 px-5 sm:px-16">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-10">
+      <div className="flex flex-col md:flex-row justify-center  items-center gap-10">
         {/* Sol tərəf - Mətn hissəsi */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -40,7 +40,7 @@ export default function Benefits() {
             delay: 0.2,
             duration: 0.5,
           }}
-          className="w-full md:w-[50%] space-y-6"
+          className="mb-10 mt-10 w-full md:w-[50%] space-y-6"
         >
           <h1
             className="text-4xl pb-2 sm:text-5xl font-bold text-transparent bg-clip-text mb-4"
@@ -89,23 +89,6 @@ export default function Benefits() {
             ))}
           </ul>
         </motion.div>
-
-        {/* Sağ tərəf - Şəkil */}
-        <div className="w-full md:w-[45%] mt-10 md:mt-0">
-          <motion.img
-            src="/images/Benefits.png"
-            alt="Veb inkişaf komandası və texnologiya"
-            className="w-full h-auto object-cover"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              delay: 0.8,
-            }}
-          />
-        </div>
       </div>
     </div>
   );

@@ -7,9 +7,9 @@ export default function Hero() {
   const brandColor = isDarkMode ? "#CAFF34" : "#1D6696";
 
   return (
-    <div className="flex justify-around items-center gap-6 md:gap-10 mt-10 md:mt-20 px-5 sm:px-16">
+    <div className="flex justify-center items-center gap-6 md:gap-10 mt-10 md:mt-20 px-5 sm:px-16">
       <motion.div
-        className={`flex flex-col justify-center items-center lg:items-start text-center lg:text-start gap-6 md:gap-10 w-full lg:w-[60%] ${
+        className={`flex flex-col justify-center items-center mb-10 lg:items-center text-center lg:text-start gap-6 md:gap-10 w-full lg:w-[60%] ${
           isDarkMode ? "text-white" : "text-black"
         }`}
         initial={{ opacity: 0, x: -50 }}
@@ -30,13 +30,12 @@ export default function Hero() {
         </div>
 
         <motion.h1
-          className="text-4xl md:text-5xl leading-normal font-bold"
+          className="flex justify-center items-center flex-col text-4xl md:text-5xl leading-normal font-bold"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
         >
           <strong style={{ color: brandColor }}>İmperia Groups</strong> ilə
-          <br />
           Peşəkar Veb Sayt Hazırlanması
         </motion.h1>
 
@@ -58,7 +57,7 @@ export default function Hero() {
           transition={{ delay: 0.5 }}
         >
           <Link
-            to="/contact"
+            to="/services/calculator"
             style={{ backgroundColor: brandColor }}
             className="relative overflow-hidden py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:opacity-90 hover:scale-105 active:scale-95"
           >
@@ -69,19 +68,6 @@ export default function Hero() {
             </span>
           </Link>
         </motion.div>
-      </motion.div>
-
-      <motion.div
-        className="w-[40%] hidden lg:flex"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-      >
-        <img
-          src={isDarkMode ? "/images/Hero.png" : "/images/Hero-dark.png"}
-          alt="Veb sayt hazırlanması - Imperia Groups"
-          className="w-full"
-        />
       </motion.div>
     </div>
   );
