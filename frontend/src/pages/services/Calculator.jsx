@@ -128,10 +128,10 @@ export default function Calculator() {
               }`}
             >
               <Briefcase size={16} />
-              Qiymət Kalkulyatoru
+              Layihəni Formalaşdır
             </motion.div>
           </motion.div>
-          <h1 className="text-5xl md:text-6xl font-black mb-6 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
             Layihəni <span style={{ color: themeColor }}>Konfiqurasiya</span> et
           </h1>
         </header>
@@ -184,7 +184,7 @@ export default function Calculator() {
             </section>
 
             {/* Section 2: Scale & Design */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-8">
               <section>
                 <h3 className="text-sm font-bold opacity-50 uppercase mb-6">
                   2. Ölçü (Səhifə)
