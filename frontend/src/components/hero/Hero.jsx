@@ -57,7 +57,7 @@ export default function Hero() {
           transition={{ delay: 0.5 }}
         >
           <Link
-            to="/services/calculator"
+            to="/services/project"
             style={{ backgroundColor: brandColor }}
             className="relative overflow-hidden py-3 px-5 rounded-3xl text-black cursor-pointer font-bold transition-all duration-300 ease-out hover:opacity-90 hover:scale-105 active:scale-95"
           >
