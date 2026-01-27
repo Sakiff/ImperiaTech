@@ -44,7 +44,7 @@ export default function Navbar() {
       label: "Xidmətlər",
       children: [
         { to: "services/technology", label: "Texnoloji" },
-        { to: "services/corporate", label: "Korporativ xidmətlər" },
+        { to: "services/corporate", label: "Korporativ Xidmətlər" },
         { to: "services/project", label: "Layihəni Formalaşdır" },
       ],
     },
