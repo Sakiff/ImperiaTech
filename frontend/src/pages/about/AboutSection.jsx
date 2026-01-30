@@ -6,7 +6,7 @@ import AboutJsonLd from "../../components/seoJsonLd/AboutJsonLd";
 
 const teamMembers = [
   {
-    name: "Vüqar Həsənli",
+    name: "Vüqar Hüseynzadə",
     role: "CEO",
     image:
       "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png",
