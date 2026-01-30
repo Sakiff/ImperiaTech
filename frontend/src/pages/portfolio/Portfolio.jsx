@@ -16,6 +16,36 @@ const projects = [
     isTemplate: false,
   },
   {
+    title: "RS-Electro",
+    image: "/images/rs-electro.png",
+    link: "https://rs-electro.com/",
+    category: "Korporativ Vebsayt",
+    description:
+      "RS-Electro - Bakıda elektrik avadanlıqlarının istehsalı və satışı. Tikinti şirkətləri, restoranlar, sənaye müəssisələri üçün peşəkar elektrik avadanlıqları.",
+    technologies: ["React", "MongoDB", "Node.js", "Express.js"],
+    isTemplate: false,
+  },
+  {
+    title: "IREE",
+    image: "/images/iree-vercel.png",
+    link: "https://iree.vercel.app/",
+    category: "Landing Page",
+    description:
+      "IREE - müəssisələr üçün HRM (insan resursları), inventar idarəetmə, kibertəhlükəsizlik və AI chatbot kimi qabaqcıl biznes həllərini təqdim edən, şirkətlərin əməliyyatlarını daha ağıllı və sürətli şəkildə qurmağa kömək edən korporativ texnologiya platformasıdır.",
+    technologies: ["React", "Tailwind", "Node.js", "Express.js"],
+    isTemplate: false,
+  },
+  {
+    title: "El Tv",
+    image: "/images/eltv.png",
+    link: "https://eltv.az/az#live",
+    category: "Tv Platforması",
+    description:
+      "El Tv - Bu sayt Azərbaycanın regional televiziya kanalı EL TV-nin (Yevlax TV) rəsmi veb səhifəsidir və burada kanalın canlı yayımlarını və proqramlarını izləmək, onun haqqında məlumat almaq və sosial media hesablarına keçid etmək mümkündür.",
+    technologies: ["Next.js", "MongoDB", "Stripe"],
+    isTemplate: false,
+  },
+  {
     title: "Line Construction",
     image: "/images/layihe1.PNG",
     link: "https://lineconstruction-001-site1.ntempurl.com/",
@@ -128,8 +158,8 @@ export default function Portfolio() {
                   ? "bg-[#CAFF34] text-gray-900"
                   : "bg-[#1D6696] text-white"
                 : isDarkMode
-                ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  ? "bg-gray-800 text-gray-300 hover:bg-gray-700"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >
             {category}
