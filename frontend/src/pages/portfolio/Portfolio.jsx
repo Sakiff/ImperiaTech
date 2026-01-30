@@ -42,7 +42,7 @@ const projects = [
     category: "Media Agentliyi",
     description:
       "El Tv - Bu sayt Azərbaycanın regional televiziya kanalı EL TV-nin (Yevlax TV) rəsmi veb səhifəsidir və burada kanalın canlı yayımlarını və proqramlarını izləmək, onun haqqında məlumat almaq və sosial media hesablarına keçid etmək mümkündür.",
-    technologies: ["Next.js", "MongoDB", "Stripe"],
+    technologies: ["React", "Next.js", "MongoDB"],
     isTemplate: false,
   },
   {
