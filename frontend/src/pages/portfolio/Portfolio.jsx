@@ -29,7 +29,7 @@ const projects = [
     title: "IREE",
     image: "/images/iree-vercel.png",
     link: "https://iree.vercel.app/",
-    category: "Landing Page",
+    category: "Korporativ Vebsayt",
     description:
       "IREE - müəssisələr üçün HRM (insan resursları), inventar idarəetmə, kibertəhlükəsizlik və AI chatbot kimi qabaqcıl biznes həllərini təqdim edən, şirkətlərin əməliyyatlarını daha ağıllı və sürətli şəkildə qurmağa kömək edən korporativ texnologiya platformasıdır.",
     technologies: ["React", "Tailwind", "Node.js", "Express.js"],
@@ -39,7 +39,7 @@ const projects = [
     title: "El Tv",
     image: "/images/eltv.png",
     link: "https://eltv.az/az#live",
-    category: "Tv Platforması",
+    category: "Media Agentliyi",
     description:
       "El Tv - Bu sayt Azərbaycanın regional televiziya kanalı EL TV-nin (Yevlax TV) rəsmi veb səhifəsidir və burada kanalın canlı yayımlarını və proqramlarını izləmək, onun haqqında məlumat almaq və sosial media hesablarına keçid etmək mümkündür.",
     technologies: ["Next.js", "MongoDB", "Stripe"],
